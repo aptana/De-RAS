@@ -4,7 +4,7 @@
 
 <h1 align="center">De-RAS</h1>
 
-<p align="center"><strong>A modern, beginner-friendly river hydraulics modeling suite, inspired by HEC-RAS.</strong></p>
+<p align="center"><strong>A modern, beginner-friendly river hydraulics modeling suite, inspired and re-model by HEC-RAS.</strong></p>
 
 ![status](https://img.shields.io/badge/status-pre--alpha-orange)
 ![visibility](https://img.shields.io/badge/repository-private-lightgrey)
