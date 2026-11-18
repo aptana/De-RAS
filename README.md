@@ -1,6 +1,10 @@
-# De-RAS
+<p align="center">
+  <img src="docs/assets/logo.png" alt="De-RAS logo" width="160">
+</p>
 
-**A modern, beginner-friendly river hydraulics modeling suite, inspired by HEC-RAS.**
+<h1 align="center">De-RAS</h1>
+
+<p align="center"><strong>A modern, beginner-friendly river hydraulics modeling suite, inspired by HEC-RAS.</strong></p>
 
 ![status](https://img.shields.io/badge/status-pre--alpha-orange)
 ![visibility](https://img.shields.io/badge/repository-private-lightgrey)
@@ -54,7 +58,8 @@ De-RAS/
 ├── tests/               Automated tests and verification cases
 ├── examples/            Sample projects for learning and benchmarking
 ├── docs/                Documentation, design notes and roadmap
-│   └── assets/          Images and diagrams used in the docs
+│   ├── assets/          Logo, images and diagrams used in the docs
+│   └── reverse-engineering/   REA process guide (English and Indonesian, Word)
 ├── .github/             Issue and pull request templates
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
@@ -77,7 +82,9 @@ Hydraulic results will be checked against analytical solutions and published ben
 
 ## Independence and attribution
 
-De-RAS is an independent project. It is **not affiliated with, endorsed by, or derived from** the U.S. Army Corps of Engineers or the HEC-RAS software. "HEC-RAS" is named only to describe the type of problem De-RAS addresses and to document file-format compatibility goals. De-RAS is built from published hydraulic theory and public documentation.
+De-RAS is an independent project. It is **not affiliated with or endorsed by** the U.S. Army Corps of Engineers or the HEC-RAS software. "HEC-RAS" is named only to describe the type of problem De-RAS addresses and to document file-format compatibility goals.
+
+De-RAS is built from published hydraulic theory, public documentation, and written specifications of observed software behavior. Specifications are produced under a clean-room process in which implementers never see the analysed software's code. The process is described in [`docs/reverse-engineering/`](docs/reverse-engineering/). No third-party code, binaries or assets are included in this repository.
 
 ## Contributing
 
