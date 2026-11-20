@@ -1,0 +1,11 @@
+--- a/src/plugins/platforms/windows/qwindowswindow.cpp	2022-11-16 07:54:24.000000000 +0000
++++ b/src/plugins/platforms/windows/qwindowswindow.cpp	2026-11-19 08:59:14.040100454 +0000
+@@ -2293,7 +2293,7 @@
+ 
+ static inline bool isSoftwareGl()
+ {
+-#if QT_CONFIG(dynamicgl)
++#if QT_CONFIG(dynamicgl) && QT_CONFIG(opengl)
+     return QOpenGLStaticContext::opengl32.moduleIsNotOpengl32()
+         && QOpenGLContext::openGLModuleType() == QOpenGLContext::LibGL;
+ #else

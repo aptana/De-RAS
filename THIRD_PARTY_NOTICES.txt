@@ -1,0 +1,34 @@
+De-RAS - third-party notices
+============================
+
+1. Qt 6.4.2 (qtbase) - GNU Lesser General Public License v3 (LGPL-3.0-only)
+   Copyright (C) The Qt Company Ltd. and other contributors.
+   De-RAS uses Qt as shared libraries (Qt6Core.dll, Qt6Gui.dll, Qt6Widgets.dll and plugins).
+   You may replace these DLLs with your own compatible build of Qt 6.4.
+   License texts: licenses\LGPL-3.0-only.txt and licenses\GPL-3.0-only.txt.
+   Build details and the one-line modification applied by De-RAS:
+   licenses\BUILD-QT-WINDOWS.md and licenses\qt6-base-6.4.2-mingw-no-opengl.patch.
+   Qt source code: https://download.qt.io/archive/qt/6.4/6.4.2/submodules/
+
+2. GCC runtime (libstdc++-6.dll, libgcc_s_seh-1.dll) - GPL v3 with the GCC Runtime Library Exception.
+
+3. MinGW-w64 winpthreads (libwinpthread-1.dll) - MIT / BSD-style license, Copyright (c) 2011 mingw-w64 project.
+
+4. Inter 4.0 (Inter-Regular/Medium/SemiBold/Bold.otf) - SIL Open Font License 1.1.
+   Copyright 2016-2023 The Inter Project Authors. https://github.com/rsms/inter
+   License text: licenses\LICENSE-Inter.txt. Embedded in De-RAS.exe as the UI typeface.
+
+5. JetBrains Mono 2.304 (JetBrainsMono-Regular/Medium.ttf) - SIL Open Font License 1.1.
+   Copyright 2020 The JetBrains Mono Project Authors. https://github.com/JetBrains/JetBrainsMono
+   License text: licenses\LICENSE-JetBrainsMono.txt. Embedded in De-RAS.exe for file names and numbers.
+
+6. Published methods: the De-RAS steady-flow engine implements equations described in the
+   publicly available "HEC-RAS Hydraulic Reference Manual" (U.S. Army Corps of Engineers,
+   Hydrologic Engineering Center). No HEC-RAS source code, binaries or decompiled code were used.
+
+7. HDF5 file format: De-RAS writes .p##.hdf files with its own writer (io/HdfWriter.cpp), built
+   from the public "HDF5 File Format Specification Version 3.0" (The HDF Group). The HDF5 library
+   is not used or shipped. The checksum is Bob Jenkins' lookup3 hashlittle (public domain, 2006).
+
+HEC-RAS is a product of the U.S. Army Corps of Engineers Hydrologic Engineering Center.
+De-RAS is not affiliated with, endorsed by, or a product of HEC or USACE.
