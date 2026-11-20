@@ -4,7 +4,7 @@
 
 <h1 align="center">De-RAS</h1>
 
-<p align="center"><strong>A modern, beginner-friendly river hydraulics modeling suite, inspired and re-model by HEC-RAS.</strong></p>
+<p align="center"><strong>A modern, beginner-friendly river hydraulics modeling suite, inspired by HEC-RAS and remodeled for a modern workflow.</strong></p>
 
 ![status](https://img.shields.io/badge/status-pre--alpha-orange)
 ![visibility](https://img.shields.io/badge/repository-private-lightgrey)
@@ -16,12 +16,12 @@
 
 ## Overview
 
-De-RAS is an open hydraulic modeling tool for river and floodplain analysis. It covers the same ground as established tools such as HEC-RAS (water surface profiles, flood levels, inundation mapping), with two priorities:
+De-RAS is a hydraulic modeling tool for river and floodplain analysis. It targets the same work as established tools such as HEC-RAS (water surface profiles, flood levels, inundation mapping), with two priorities:
 
-1. **A modern workflow.** Clean interface, readable project files, scriptable from the command line, and sensible defaults.
-2. **Easy to learn.** Guided setup, plain-language validation messages, and built-in checks that catch common modeling mistakes before a run, not after.
+1. A modern workflow: a clean interface, readable project files, command-line scripting, and sensible defaults.
+2. Easy to learn: guided setup, plain-language validation messages, and checks that catch common modeling mistakes before a run instead of after it.
 
-De-RAS is aimed at engineers, students and practitioners who need reliable flood-level results without a steep learning curve.
+It is meant for engineers, students and practitioners who need flood-level results from a tool they can pick up quickly.
 
 ## Why De-RAS
 
@@ -84,7 +84,7 @@ Hydraulic results will be checked against analytical solutions and published ben
 
 De-RAS is an independent project. It is **not affiliated with or endorsed by** the U.S. Army Corps of Engineers or the HEC-RAS software. "HEC-RAS" is named only to describe the type of problem De-RAS addresses and to document file-format compatibility goals.
 
-De-RAS is built from published hydraulic theory, public documentation, and written specifications of observed software behavior. Specifications are produced under a clean-room process in which implementers never see the analysed software's code. The process is described in [`docs/reverse-engineering/`](docs/reverse-engineering/). No third-party code, binaries or assets are included in this repository.
+De-RAS is built from published hydraulic theory, public documentation, and written specifications of observed software behavior. Specifications are produced under a clean-room process in which implementers never see the code of the analyzed software. The process is described in [`docs/reverse-engineering/`](docs/reverse-engineering/). No third-party code, binaries or assets are included in this repository.
 
 ## Contributing
 
@@ -96,4 +96,4 @@ To be decided before the first public release.
 
 ## Maintainer
 
-Faishal Aptana Azmi, Tarakan, North Kalimantan, ndonesia.
+Faishal Aptana Azmi, Tarakan, North Kalimantan, Indonesia.
