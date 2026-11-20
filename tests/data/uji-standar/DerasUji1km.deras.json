@@ -1,0 +1,81 @@
+{
+  "format": "De-RAS sidecar",
+  "format_version": 1,
+  "note": "De-RAS settings for this HEC-RAS project. HEC-RAS ignores this file.",
+  "coordinate_system": "",
+  "time_zone": "UTC+07:00",
+  "target_ras_version": "7.00",
+  "notes": "Proyek uji standar De-RAS (R5). Data sintetis, bukan data lapangan.",
+  "terrains": [
+    "Terrain/DerasUji1km_terrain.tif"
+  ],
+  "pictures": [],
+  "modules": {
+    "sediment": {
+      "geometry": "g01",
+      "output_hours": 24,
+      "quasi_unsteady": {
+        "river": "Sungai Uji",
+        "reach": "Utama",
+        "ds_slope": 0.001,
+        "records": [
+          {
+            "duration_hours": 240,
+            "flow": 20,
+            "compute_hours": 24,
+            "ds_stage": null
+          },
+          {
+            "duration_hours": 120,
+            "flow": 60,
+            "compute_hours": 12,
+            "ds_stage": null
+          },
+          {
+            "duration_hours": 48,
+            "flow": 150,
+            "compute_hours": 6,
+            "ds_stage": null
+          },
+          {
+            "duration_hours": 120,
+            "flow": 60,
+            "compute_hours": 12,
+            "ds_stage": null
+          }
+        ]
+      },
+      "sediment": {
+        "function": 0,
+        "specific_gravity": 2.65,
+        "porosity": 0.4,
+        "temperature_c": 25,
+        "gradation_mm_percent_finer": [
+          [0.5,5],
+          [1,20],
+          [2,50],
+          [5,84],
+          [10,100]
+        ],
+        "max_erodible_depth": 2,
+        "inflow": 1,
+        "rating_flow_load": []
+      }
+    },
+    "water_quality": {
+      "plan": "p02",
+      "constituent": "Tracer",
+      "initial_mg_l": 0,
+      "dispersion": 10,
+      "decay_per_day": 0,
+      "upstream_hours_mg_l": [
+        [0,0],
+        [2,0],
+        [3,100],
+        [5,100],
+        [6,0],
+        [24,0]
+      ]
+    }
+  }
+}

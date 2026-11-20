@@ -1,0 +1,23 @@
+Plan Title=Fixture steady plan
+Program Version=6.60
+Short Identifier=FixSteady
+Simulation Date=,,,
+Geom File=g01
+Flow File=f01
+Subcritical Flow
+K Sum by GR= 0 
+Std Step Tol= 0.003 
+Critical Tol= 0.003 
+Num of Std Step Trials= 20 
+Max Error Tol= 0.1 
+Flow Tol Ratio= 0.001 
+Split Flow NTrial= 30 
+Split Flow Tol= 0.02 
+Split Flow Ratio= 0.02 
+Log Output Level= 0 
+Friction Slope Method= 1 
+Unsteady Friction Slope Method= 2 
+Parabolic Critical Depth
+Global Vel Dist= 0 , 0 , 0 
+Global Log Level= 0 
+CheckData=True

@@ -1,0 +1,21 @@
+Flow Title=Banjir uji 24 jam + dataran 2D
+Program Version=7.00
+Use Restart= 0 
+Initial Flow Loc=Sungai Uji      ,Utama           ,1000    ,20
+Boundary Location=Sungai Uji      ,Utama           ,1000    ,        ,                ,                ,                ,                                
+Interval=1HOUR
+Flow Hydrograph= 25 
+      20    41.7    63.3      85   106.7   128.3     150   139.2   128.3   117.5
+   106.7    95.8      85    74.2    63.3    52.5    41.7    30.8      20      20
+      20      20      20      20      20
+Stage Hydrograph TW Check=0
+DSS Path=
+Use DSS=False
+Use Fixed Start Time=False
+Fixed Start Date/Time=,
+Is Critical Boundary=False
+Critical Boundary Flow=
+Boundary Location=Sungai Uji      ,Utama           ,0       ,        ,                ,                ,                ,                                
+Friction Slope=0.001,0
+Boundary Location=                ,                ,        ,        ,                ,Dataran Kanan   ,                ,Hilir Dataran                   ,                                
+Friction Slope=0.001,0
