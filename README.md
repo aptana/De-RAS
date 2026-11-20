@@ -96,4 +96,4 @@ To be decided before the first public release.
 
 ## Maintainer
 
-Faishal Aptana Azmi, Tarakan, Indonesia.
+Faishal Aptana Azmi, Tarakan, North Kalimantan, ndonesia.
