@@ -1,7 +1,7 @@
 // Standard test project (review R5 of build 0.2.0): tests/data/uji-standar/
 // DerasUji1km.prj, a 1 km river with a section every 200 m and a 20 m wide
 // channel. Every analysis feature is tested on this project; results are
-// recorded in docs/TESTING.md (S1–S4).
+// recorded in docs/TESTING_EN.md (S1–S7).
 //  S1 open–save identical      : ctest "roundtrip_uji_standar" (deras-roundtrip)
 //  S2 Model Doctor             : no errors, no warnings
 //  S3 steady run               : the plan stored in the project runs to the end

@@ -70,6 +70,13 @@ Status: the fourth test build. It contains M6 (storage areas, lateral structures
 - `FEATURE_MATRIX_EN.md` is rebuilt from `featureRows()`; `screenshots/README.md` needs a 0.2.3 row.
 - Vertical n, multiple openings and `.hdf` terrain / reprojection are not in 0.2.3: their schedule has to be decided by the project owner.
 
+### Maintenance after release 0.2.3 (20 November 2026, no new build)
+So that the code in the GitHub repository (which carries only the `_EN` documents) still builds. Application behaviour, computed results and installer contents are unchanged; the 0.2.3 installer is not replaced and the version stays 0.2.3.
+- `tools/package/make_windows_dist.sh`: `FEATURE_MATRIX.md`, `TESTING.md` and `FILE_FORMATS.md` are taken from `docs/<NAME>.md`, or from `docs/<NAME>_EN.md` when the first does not exist; the names inside the package stay the same. When neither exists a warning is printed and the package is still built.
+- `docs/manual/source/build_manuals.py`: a manual whose source is missing (e.g. `manual.id.md` in the repository) is skipped with a warning; the script fails only when no source exists at all.
+- Code comments no longer refer to `BASE - PROMPT.md` or `CATATAN_VERSI.md`, which are not published: `ui/Help.cpp`, `ui/MainWindow.h`, `ui/Theme.h`, `ui/Theme.cpp`, `ui/Features.h`, `installer/De-RAS.nsi`. References to `docs/TESTING.md` in `tests/test_uji_standar.cpp` and `tools/testdata/make_uji_standar.cpp` now point to `docs/TESTING_EN.md`; the project owner's name in the test-project specification comment is replaced by "project owner".
+- Tests: `ctest` 19/19 pass; the packaging script was run into a temporary folder (not `release/`).
+
 ## 0.2.2 · M2 to M5 (19–20 November 2026)
 
 Status: the third test build. It contains M2 (complete steady flow), M3 (RAS Mapper), M4 (structures) and M5 (1D unsteady). M6 to M8 were not started and went into 0.2.3. All new features are **Preview**: their results have not been compared with HEC-RAS, and some file block formats are not verified.

@@ -76,7 +76,8 @@ InfoButton::InfoButton(const QString& topicId, QWidget* parent) : QToolButton(pa
     connect(this, &QToolButton::clicked, this, &InfoButton::showPopup);
 }
 
-// Small and dim (BASE - PROMPT: "ⓘ tetap ada di setiap fitur tetapi kecil dan redup"); brighter on hover/focus.
+// Small and dim: every feature keeps its ⓘ, but it must not compete with the
+// controls around it. Brighter on hover/focus.
 void InfoButton::paintEvent(QPaintEvent*) {
     const Theme& t = Theme::current();
     QPainter p(this);

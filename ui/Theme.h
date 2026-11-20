@@ -1,6 +1,7 @@
 // De-RAS - ui/Theme.h
-// Design tokens for the 0.2.0 UI, in one place (BASE - PROMPT.md, "Gaya
-// visual"). Two themes: Dark (default) and Light (light blue). The
+// Design tokens of the De-RAS UI (since build 0.2.0), in one place: a modern
+// flat style with soft cards, one accent family, and the same layout in both
+// themes. Two themes: Dark (default) and Light (light blue). The
 // accent colours come from the De-RAS logo. Every widget reads colours from
 // Theme::current(); the application style sheet is generated from the same
 // tokens, so changing a value here changes it everywhere.

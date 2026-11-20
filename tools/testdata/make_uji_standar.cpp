@@ -2,10 +2,10 @@
 // Developer tool (not shipped): writes the standard test project
 // tests/data/uji-standar/DerasUji1km.* (review R5 of build 0.2.0). The files
 // are committed; run this tool only to recreate them after a deliberate change
-// of the specification in docs/TESTING.md (S1–S4).
+// of the specification in docs/TESTING_EN.md (S1–S7).
 //   deras-make-uji-standar <output-dir>
 //
-// Specification (Aptana: 1 km river, a section every 200 m, 20 m wide; the
+// Specification (project owner: 1 km river, a section every 200 m, 20 m wide; the
 // other values were proposed by the notes thread and adopted unchanged):
 //   1 river, 1 reach, 1000 m; 6 sections RS 1000 (upstream) .. 0 (downstream)
 //   main channel 20 m wide at the bank tops, 3 m deep, 1V:1H walls
@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
     s.sideSlope = 1;
     s.bankHeight = 3;
     s.floodplainWidth = 30;
-    s.floodplainRise = 1.5;  // 0.5 m (proposal) let Q150 overtop the end points; see TESTING.md S4
+    s.floodplainRise = 1.5;  // 0.5 m (proposal) let Q150 overtop the end points; see docs/TESTING_EN.md S4
     s.bedSlope = 0.001;
     s.downstreamInvert = 100;
     s.nChannel = 0.035;

@@ -85,7 +85,8 @@ static Theme make(ThemeName n, int px) {
     } else {
         t.dark = false;
         // Light Theme: light blue, a light version of the dark theme's navy
-        // (BASE - PROMPT.md token table, review R9 of build 0.2.0).
+        // (base #E6EFFA, cards #F7FAFF, headings #01215F, primary #0151B7;
+        // review R9 of build 0.2.0).
         t.base = QColor("#E6EFFA");
         t.workA = QColor("#F3F8FE");
         t.workB = QColor("#DCE8F7");

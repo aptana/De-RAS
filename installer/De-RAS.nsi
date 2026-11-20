@@ -1,6 +1,6 @@
 ; De-RAS - Windows installer (NSIS 3, Modern UI 2)
 ; Build: makensis -DVERSION=0.1.0 -DLABEL=ALPHA -DSTAGE=<dist folder> -DOUTDIR=<out> installer/De-RAS.nsi
-; Rules (from BASE - PROMPT):
+; Rules of the De-RAS installer:
 ;  - installs only when the user runs it; nothing is installed silently by De-RAS itself
 ;  - an older De-RAS installation is detected and removed only after the user agrees
 ;  - never touches HEC-RAS or any other software; no file associations are changed

@@ -23,7 +23,14 @@ cp "$SRC/THIRD_PARTY_NOTICES.txt" "$SRC/installer/NOTICE.txt" "$STAGE/"
 cp "$SRC"/third_party/qt/* "$STAGE/licenses/"
 cp "$SRC"/resources/fonts/LICENSE-*.txt "$STAGE/licenses/"
 for f in "$SRC"/docs/manual/*; do [ -f "$f" ] && cp "$f" "$STAGE/docs/"; done
-cp "$SRC"/docs/{FEATURE_MATRIX,TESTING,FILE_FORMATS}.md "$STAGE/docs/"
+# Reference documents keep their packaged names (FEATURE_MATRIX.md, ...). The
+# full working tree has <NAME>.md; the published repository has <NAME>_EN.md
+# only, so fall back to that (and warn if neither exists).
+for n in FEATURE_MATRIX TESTING FILE_FORMATS; do
+  if [ -f "$SRC/docs/$n.md" ]; then cp "$SRC/docs/$n.md" "$STAGE/docs/$n.md"
+  elif [ -f "$SRC/docs/${n}_EN.md" ]; then cp "$SRC/docs/${n}_EN.md" "$STAGE/docs/$n.md"
+  else echo "warning: docs/$n.md and docs/${n}_EN.md not found; not packaged" >&2; fi
+done
 # qt.conf keeps Qt from looking for plugins anywhere but next to the exe
 printf '[Paths]\nPrefix = .\nPlugins = .\n' > "$STAGE/qt.conf"
 makensis -V2 -DVERSION="$VERSION" -DLABEL="$LABEL" -DSTAGE="$STAGE" -DOUTDIR="$OUT" "$SRC/installer/De-RAS.nsi"

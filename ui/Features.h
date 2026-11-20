@@ -1,6 +1,7 @@
 // De-RAS - ui/Features.h
 // One list of the features that are not available in this build, with the
-// 0.2.0 milestone that will deliver them (docs/CATATAN_VERSI.md, M2–M8).
+// milestone planned for them (M2–M8 of the 0.2.x builds; "LATER" = planned
+// but not in the current build, "NA" = not scheduled).
 // Toolbar buttons, palette entries, menu items and the feature matrix all
 // read their lock state and tooltip from here, so the app never shows a
 // control for a feature that does not work.

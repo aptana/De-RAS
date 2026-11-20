@@ -1,5 +1,5 @@
 // De-RAS - ui/MainWindow.h
-// The single main window of De-RAS 0.2.0 (docs/CATATAN_VERSI.md, M1):
+// The single main window of De-RAS (introduced in build 0.2.0, milestone M1):
 //   header (logo, name, version, menu, project chip)
 //   grouped labelled toolbar capsule (PROYEK / EDITOR / JALANKAN / GIS / HASIL & TABEL)
 //   view bar (back, breadcrumb, title, status badge, ⓘ, main actions on the right)

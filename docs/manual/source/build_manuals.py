@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build both De-RAS manuals (.docx) from manual.id.md / manual.en.md.
+"""Build the De-RAS manuals (.docx) from manual.id.md / manual.en.md (each one that exists).
 Pass 1 builds the document, LibreOffice renders it to PDF, pdftotext finds the page of every
 chapter and section, and pass 2 rebuilds the document with those page numbers in the contents list.
 Needs: node with docx@9 and marked@12 on NODE_PATH, LibreOffice (soffice), poppler-utils (pdftotext)."""
@@ -26,8 +26,14 @@ def pages_for(docx, headings):
         out[h["text"]] = str(q + 1); p = q
     return out
 
+# The published repository carries the English manual only; a missing source
+# is skipped with a warning instead of stopping the build.
+built = 0
 for src, dst in JOBS:
     src, dst = os.path.join(HERE, src), os.path.normpath(os.path.join(HERE, dst))
+    if not os.path.exists(src):
+        print(f"warning: {os.path.basename(src)} not found; {os.path.basename(dst)} not built", file=sys.stderr)
+        continue
     subprocess.run(["node", os.path.join(HERE, "build_manual.js"), src, dst], check=True)
     heads = json.load(open(dst + ".headings.json"))
     pages = pages_for(dst, heads)
@@ -36,3 +42,5 @@ for src, dst in JOBS:
     if pages_for(dst, heads) != pages: print("warning: page numbers shifted between passes", file=sys.stderr)
     os.remove(pj); os.remove(dst + ".headings.json")
     print("ok", dst)
+    built += 1
+if built == 0: raise SystemExit("no manual source found (manual.id.md / manual.en.md)")
