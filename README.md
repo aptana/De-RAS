@@ -1,4 +1,8 @@
-# De-RAS
+<p align="center">
+  <img src="branding/icons/De-RAS-256.png" alt="De-RAS logo" width="160">
+</p>
+
+<h1 align="center">De-RAS</h1>
 
 De-RAS is a desktop application for river and floodplain hydraulics. It computes water surface profiles, flood extents and flow velocities with its own C++ engine, and it works directly on HEC-RAS project files (`.prj`, `.g##`, `.f##`, `.u##`, `.p##`), so no separate HEC-RAS installation is needed to open, edit and compute a project. The interface is in English and Indonesian.
 
