@@ -1,0 +1,29 @@
+De-RAS - pemberitahuan / notice
+===============================
+
+[ID]
+De-RAS adalah perangkat lunak hidraulika sungai dan banjir yang membaca dan menulis file
+proyek HEC-RAS (.prj, .g##, .f##, .p##) dan menjalankan perhitungannya sendiri.
+
+* De-RAS TIDAK berafiliasi dengan, tidak didukung oleh, dan bukan produk dari Hydrologic
+  Engineering Center (HEC), U.S. Army Corps of Engineers. HEC-RAS disebut hanya untuk
+  menjelaskan kompatibilitas format file.
+* Versi ini berlabel ALPHA (Tahap 1): hanya aliran steady 1D rezim subkritis. Kesamaan hasil
+  dengan HEC-RAS BELUM divalidasi. Periksa hasil sebelum dipakai untuk keputusan teknis.
+* Installer ini tidak mengubah, menghapus, atau mengasosiasikan ulang file HEC-RAS maupun
+  program lain. Versi De-RAS lama hanya dihapus bila Anda menyetujuinya.
+* Komponen pihak ketiga: Qt 6 (LGPL v3) dan runtime MinGW. Lihat THIRD_PARTY_NOTICES.txt.
+
+[EN]
+De-RAS is river and flood hydraulics software that reads and writes HEC-RAS project files
+(.prj, .g##, .f##, .p##) and runs its own computations.
+
+* De-RAS is NOT affiliated with, endorsed by, or a product of the Hydrologic Engineering
+  Center (HEC), U.S. Army Corps of Engineers. HEC-RAS is mentioned only to describe
+  file-format compatibility.
+* This version is labelled ALPHA (Stage 1): 1D steady flow, subcritical regime only.
+  Equivalence of results with HEC-RAS has NOT been validated. Check results before using
+  them for engineering decisions.
+* This installer does not change, remove or re-associate HEC-RAS files or any other
+  program. An older De-RAS version is only removed if you agree.
+* Third-party components: Qt 6 (LGPL v3) and the MinGW runtime. See THIRD_PARTY_NOTICES.txt.

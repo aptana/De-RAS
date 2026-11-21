@@ -25,3 +25,7 @@ Short imperative subject line, for example `Add normal depth boundary condition`
 ## Clean-room rule
 
 Implement from published theory, textbooks and public documentation. Do not copy code, assets or text from third-party software.
+
+## License
+
+By contributing you agree that your contribution is licensed under the Apache License 2.0, the same as the rest of the project.

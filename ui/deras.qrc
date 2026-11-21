@@ -1,0 +1,39 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/branding">
+  <file alias="De-RAS-128.png">../branding/icons/De-RAS-128.png</file>
+  <file alias="De-RAS-16.png">../branding/icons/De-RAS-16.png</file>
+  <file alias="De-RAS-24.png">../branding/icons/De-RAS-24.png</file>
+  <file alias="De-RAS-256.png">../branding/icons/De-RAS-256.png</file>
+  <file alias="De-RAS-32.png">../branding/icons/De-RAS-32.png</file>
+  <file alias="De-RAS-48.png">../branding/icons/De-RAS-48.png</file>
+  <file alias="De-RAS-64.png">../branding/icons/De-RAS-64.png</file>
+</qresource>
+<qresource prefix="/example">
+  <file alias="DerasUji1km.prj">../tests/data/uji-standar/DerasUji1km.prj</file>
+  <file alias="DerasUji1km.g01">../tests/data/uji-standar/DerasUji1km.g01</file>
+  <file alias="DerasUji1km.g02">../tests/data/uji-standar/DerasUji1km.g02</file>
+  <file alias="DerasUji1km.f01">../tests/data/uji-standar/DerasUji1km.f01</file>
+  <file alias="DerasUji1km.p01">../tests/data/uji-standar/DerasUji1km.p01</file>
+  <file alias="DerasUji1km.p02">../tests/data/uji-standar/DerasUji1km.p02</file>
+  <file alias="DerasUji1km.p03">../tests/data/uji-standar/DerasUji1km.p03</file>
+  <file alias="DerasUji1km.u01">../tests/data/uji-standar/DerasUji1km.u01</file>
+  <file alias="DerasUji1km.u02">../tests/data/uji-standar/DerasUji1km.u02</file>
+  <file alias="DerasUji1km.deras.json">../tests/data/uji-standar/DerasUji1km.deras.json</file>
+  <file alias="Terrain/DerasUji1km_terrain.tif">../tests/data/uji-standar/Terrain/DerasUji1km_terrain.tif</file>
+</qresource>
+<qresource prefix="/help">
+  <file alias="help.json">../resources/help/help.json</file>
+</qresource>
+<qresource prefix="/fonts">
+  <file alias="Inter-Regular.otf">../resources/fonts/Inter-Regular.otf</file>
+  <file alias="Inter-Medium.otf">../resources/fonts/Inter-Medium.otf</file>
+  <file alias="Inter-SemiBold.otf">../resources/fonts/Inter-SemiBold.otf</file>
+  <file alias="Inter-Bold.otf">../resources/fonts/Inter-Bold.otf</file>
+  <file alias="JetBrainsMono-Regular.ttf">../resources/fonts/JetBrainsMono-Regular.ttf</file>
+  <file alias="JetBrainsMono-Medium.ttf">../resources/fonts/JetBrainsMono-Medium.ttf</file>
+</qresource>
+<qresource prefix="/ui">
+  <file alias="chevron-down-dark.png">../resources/ui/chevron-down-dark.png</file>
+  <file alias="chevron-down-light.png">../resources/ui/chevron-down-light.png</file>
+</qresource>
+</RCC>

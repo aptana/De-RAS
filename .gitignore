@@ -1,26 +1,53 @@
-# OS
+# Operating system
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Editors
 .vscode/
 .idea/
+*.user
+*.autosave
 
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-*.egg-info/
-dist/
+# Build output
 build/
-.pytest_cache/
+build-*/
+out/
+dist/
+CMakeCache.txt
+CMakeFiles/
 
-# Node
-node_modules/
+# Release binaries are published as GitHub Release assets, not committed
+release/
 
-# Local data and results
+# Local logs and scratch data
 *.log
 *.tmp
-/data/
-/results/
+
+# Internal working notes and files kept on the maintainer's machine only
+BASE - PROMPT.md
+De-RAS Icon.png
+docs/CATATAN_VERSI.md
+docs/design/
+screenshots/*/review/
+
+# Indonesian working copies (the English versions are the published ones)
+docs/*_ID.md
+docs/manual/De-RAS_Panduan_Pengguna_ID.docx
+docs/manual/help-topics.id.md
+docs/manual/source/manual.id.md
+
+# Unsuffixed duplicates of the _EN documents, used by the local packaging script
+docs/ARCHITECTURE.md
+docs/FILE_FORMATS.md
+docs/BUILD.md
+docs/FEATURE_MATRIX.md
+docs/TESTING.md
+docs/CHANGELOG.md
+
+# Obsolete stub files left over from 0.2.0 (no longer built)
+ui/FlowPlanEditors.*
+ui/GeometryEditor.*
+ui/ProjectHub.*
+ui/RunManager.*
+ui/SchematicView.*

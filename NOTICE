@@ -1,0 +1,15 @@
+De-RAS
+Copyright 2026 The De-RAS contributors
+
+This product is licensed under the Apache License, Version 2.0. See the LICENSE file.
+
+De-RAS is independent software. It is not affiliated with, endorsed by, or a
+product of the Hydrologic Engineering Center (HEC) or the U.S. Army Corps of
+Engineers. HEC-RAS is their product and name. It is mentioned here only to
+describe which project files De-RAS can read and write.
+
+De-RAS was written from publicly available documentation and published
+hydraulic methods. It contains no HEC-RAS source code, binaries or assets.
+
+Third-party components and their licenses are listed in THIRD_PARTY_NOTICES.txt.
+The Qt license texts and the Qt build notes are in third_party/qt/.

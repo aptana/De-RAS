@@ -1,0 +1,3380 @@
+{
+ "generator": "tools/help/build_help.py",
+ "topics": [
+  {
+   "id": "start",
+   "title": {
+    "id": "Memulai De-RAS",
+    "en": "Getting started with De-RAS"
+   },
+   "short": {
+    "id": "Alur kerja dasar: proyek → geometri → aliran → plan → jalankan → hasil.",
+    "en": "Basic workflow: project → geometry → flow → plan → run → results."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS menghitung muka air sungai 1D steady (rezim subkritis, superkritis, atau campuran) dan memakai file proyek HEC-RAS (.prj, .g##, .f##, .p##) sebagai format aslinya. Proyek yang disimpan De-RAS tetap bisa dibuka di HEC-RAS, dan sebaliknya untuk fitur yang didukung.</p><h3>Langkah</h3><ol><li>Di Beranda (tombol rumah atau Ctrl+1), buat proyek baru (Ctrl+N), buka file .prj (Ctrl+O), atau buka proyek contoh.</li><li>Buka Data Geometri (Ctrl+2); klik ganda penampang untuk membuka Editor Penampang.</li><li>Isi debit dan kondisi batas hilir di Aliran Steady (Ctrl+3).</li><li>Periksa plan di Analisis Steady (Ctrl+5), lalu tekan F7 (Model Doctor) dan F5 (Hitung).</li><li>Jendela Komputasi menampilkan kemajuan; setelah selesai klik Lihat hasil.</li><li>Di Hasil, lihat penampang, profil memanjang dan tabel; ekspor CSV atau laporan HTML.</li></ol><h3>Data yang dibutuhkan</h3><p>Penampang melintang (stasiun–elevasi), n Manning, jarak antarpenampang, debit per profil, kondisi batas hilir.</p><h3>Hasil</h3><p>Muka air, garis energi, kecepatan, luas, lebar muka air, dan bilangan Froude per penampang. Hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS computes 1D steady water surface profiles (subcritical, supercritical or mixed regime) and uses HEC-RAS project files (.prj, .g##, .f##, .p##) as its native format. Projects saved by De-RAS can still be opened in HEC-RAS, and vice versa for supported features.</p><h3>Steps</h3><ol><li>On Home, create a new project (Ctrl+N), open a .prj file (Ctrl+O), or open the example project.</li><li>Open Geometric Data (Ctrl+2); double-click a cross section to open the Cross Section Editor.</li><li>Enter discharges and downstream boundaries in Steady Flow (Ctrl+3).</li><li>Check the plan in Steady Analysis (Ctrl+5), then press F7 (Model Doctor) and F5 (Compute).</li><li>The Compute window shows progress; when it finishes click View results.</li><li>In Results, review cross sections, the longitudinal profile and tables; export CSV or an HTML report.</li></ol><h3>Data needed</h3><p>Cross sections (station–elevation), Manning&#x27;s n, reach lengths, discharge per profile, downstream boundary.</p><h3>Result</h3><p>Water surface, energy grade, velocity, area, top width and Froude number per cross section. Equivalence with HEC-RAS has not been validated.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.new",
+    "geometry.editor",
+    "flow.editor",
+    "plan.editor",
+    "sim.run",
+    "results.view"
+   ]
+  },
+  {
+   "id": "hub.new",
+   "title": {
+    "id": "Proyek baru",
+    "en": "New project"
+   },
+   "short": {
+    "id": "Membuat proyek HEC-RAS baru dari satu lembar isian (Ctrl+N).",
+    "en": "Creates a new HEC-RAS project from a single form (Ctrl+N)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Membuat file .prj, .g01, .f01 dan .p01 di folder pilihan Anda.</p><h3>Langkah</h3><ol><li>Klik Proyek baru di Beranda atau Berkas → Proyek baru.</li><li>Bagian 1: isi judul, nama file dan folder.</li><li>Bagian 2: pilih satuan, sistem koordinat dan zona waktu.</li><li>Bagian 3: isi nama sungai dan reach, lalu pilih template kosong atau saluran prismatik.</li><li>Klik Buat proyek.</li></ol><h3>Data yang dibutuhkan</h3><p>Nama file tanpa spasi; folder yang bisa ditulisi.</p><h3>Hasil</h3><p>Proyek baru langsung terbuka: template prismatik di Beranda, template kosong di Data Geometri. De-RAS tidak pernah menimpa proyek yang sudah ada.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Creates .prj, .g01, .f01 and .p01 files in the folder you choose.</p><h3>Steps</h3><ol><li>Click New project on Home or File → New project.</li><li>Section 1: enter a title, file name and folder.</li><li>Section 2: choose units, coordinate system and time zone.</li><li>Section 3: enter river and reach names, then choose an empty or prismatic-channel template.</li><li>Click Create project.</li></ol><h3>Data needed</h3><p>A file name without spaces; a writable folder.</p><h3>Result</h3><p>The new project opens right away: the prismatic template on Home, the empty template in Geometric Data. De-RAS never overwrites an existing project.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "wizard.page1",
+    "hub.example"
+   ]
+  },
+  {
+   "id": "hub.open",
+   "title": {
+    "id": "Buka proyek",
+    "en": "Open project"
+   },
+   "short": {
+    "id": "Membuka file .prj HEC-RAS beserta file geometri, aliran dan plan yang tercantum.",
+    "en": "Opens a HEC-RAS .prj file with the geometry, flow and plan files it lists."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS membaca semua file yang tercantum di .prj. Bagian yang belum didukung (misalnya jembatan) tetap tersimpan utuh saat proyek disimpan.</p><h3>Langkah</h3><ol><li>Klik Buka proyek.</li><li>Pilih file .prj.</li><li>Periksa panel Pesan untuk peringatan pembacaan.</li></ol><h3>Data yang dibutuhkan</h3><p>File .prj dan file-file yang dirujuknya di folder yang sama.</p><h3>Hasil</h3><p>Proyek terbuka; file yang tidak diubah ditulis ulang byte demi byte sama.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS reads every file listed in the .prj. Parts it does not support yet (e.g. bridges) are kept unchanged when saving.</p><h3>Steps</h3><ol><li>Click Open project.</li><li>Choose the .prj file.</li><li>Check the Messages panel for read warnings.</li></ol><h3>Data needed</h3><p>The .prj file and the files it references in the same folder.</p><h3>Result</h3><p>The project opens; unchanged files are written back byte-for-byte identical.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.recent",
+    "project.save"
+   ]
+  },
+  {
+   "id": "hub.duplicate",
+   "title": {
+    "id": "Duplikasi proyek",
+    "en": "Duplicate project"
+   },
+   "short": {
+    "id": "Menyalin semua file proyek ke nama atau folder baru (Simpan Sebagai).",
+    "en": "Copies all project files to a new name or folder (Save As)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Berguna untuk membuat skenario tanpa mengubah proyek asli.</p><h3>Langkah</h3><ol><li>Klik Duplikasi.</li><li>Pilih nama .prj baru.</li><li>Proyek salinan terbuka otomatis.</li></ol><h3>Data yang dibutuhkan</h3><p>Proyek sumber (yang terbuka atau dipilih).</p><h3>Hasil</h3><p>Salinan lengkap dengan nama file baru.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Useful for creating scenarios without changing the original project.</p><h3>Steps</h3><ol><li>Click Duplicate.</li><li>Choose a new .prj name.</li><li>The copy opens automatically.</li></ol><h3>Data needed</h3><p>The source project (open or chosen).</p><h3>Result</h3><p>A complete copy with the new file names.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "hub.example",
+   "title": {
+    "id": "Proyek contoh",
+    "en": "Example project"
+   },
+   "short": {
+    "id": "Membuka proyek uji standar De-RAS (Sungai Uji 1 km) berlabel CONTOH.",
+    "en": "Opens the De-RAS standard test project (Sungai Uji 1 km), labelled EXAMPLE."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Sungai 1 km dengan 6 penampang setiap 200 m, saluran utama lebar 20 m, dan debit 20, 60, serta 150 m³/s. Data buatan untuk belajar dan untuk menguji setiap fitur analisis, bukan data lapangan.</p><h3>Langkah</h3><ol><li>Klik Proyek contoh di Beranda.</li><li>Tekan F5 untuk menghitung.</li><li>Klik Lihat hasil di Jendela Komputasi.</li></ol><h3>Hasil</h3><p>Proyek DerasUji1km di Dokumen\\De-RAS Projects\\Contoh. Salinan yang sudah ada tidak ditimpa.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>A 1 km river with 6 cross sections every 200 m, a 20 m wide main channel, and flows of 20, 60 and 150 m³/s. Made-up data for learning and for testing every analysis feature, not field data.</p><h3>Steps</h3><ol><li>Click Example project on Home.</li><li>Press F5 to compute.</li><li>Click View results in the Compute window.</li></ol><h3>Result</h3><p>Project DerasUji1km in Documents\\De-RAS Projects\\Contoh. An existing copy is not overwritten.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "hub.recent",
+   "title": {
+    "id": "Proyek terakhir",
+    "en": "Recent projects"
+   },
+   "short": {
+    "id": "Daftar proyek yang terakhir dibuka atau disimpan. Klik ganda untuk membuka.",
+    "en": "Projects opened or saved recently. Double-click to open."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Tanda ⚠ berarti file tidak ditemukan (dipindah atau dihapus).</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>A ⚠ mark means the file was not found (moved or deleted).</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "wizard.page1",
+   "title": {
+    "id": "Proyek baru: Nama dan lokasi",
+    "en": "New project: Name and location"
+   },
+   "short": {
+    "id": "Judul proyek, nama file dan folder.",
+    "en": "Project title, file name and folder."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.new"
+   ]
+  },
+  {
+   "id": "wizard.page2",
+   "title": {
+    "id": "Proyek baru: Satuan, koordinat, zona waktu",
+    "en": "New project: Units, coordinates, time zone"
+   },
+   "short": {
+    "id": "Sistem satuan proyek dan informasi georeferensi.",
+    "en": "Project unit system and georeference information."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.new"
+   ]
+  },
+  {
+   "id": "wizard.page3",
+   "title": {
+    "id": "Proyek baru: Sungai dan reach",
+    "en": "New project: River and reach"
+   },
+   "short": {
+    "id": "Nama sungai dan reach pertama.",
+    "en": "Name of the first river and reach."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.new"
+   ]
+  },
+  {
+   "id": "wizard.page4",
+   "title": {
+    "id": "Proyek baru: Template",
+    "en": "New project: Template"
+   },
+   "short": {
+    "id": "Proyek kosong atau saluran prismatik siap hitung.",
+    "en": "Empty project or a ready-to-run prismatic channel."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "hub.new"
+   ]
+  },
+  {
+   "id": "wizard.title",
+   "title": {
+    "id": "Judul proyek",
+    "en": "Project title"
+   },
+   "short": {
+    "id": "Judul yang tampil di HEC-RAS dan De-RAS (baris Proj Title di .prj).",
+    "en": "Title shown in HEC-RAS and De-RAS (Proj Title line in the .prj)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "wizard.basename",
+   "title": {
+    "id": "Nama file proyek",
+    "en": "Project file name"
+   },
+   "short": {
+    "id": "Nama dasar semua file proyek, mis. Sungai → Sungai.prj, Sungai.g01. Huruf, angka, _ dan - saja.",
+    "en": "Base name of all project files, e.g. River → River.prj, River.g01. Letters, digits, _ and - only."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "wizard.folder",
+   "title": {
+    "id": "Folder proyek",
+    "en": "Project folder"
+   },
+   "short": {
+    "id": "Folder tempat semua file proyek disimpan. Dibuat bila belum ada.",
+    "en": "Folder where all project files are stored. Created if missing."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "wizard.units",
+   "title": {
+    "id": "Sistem satuan",
+    "en": "Unit system"
+   },
+   "short": {
+    "id": "SI (m, m³/s) atau US Customary (ft, cfs). Menentukan konstanta Manning (1,0 atau 1,486) dan gravitasi.",
+    "en": "SI (m, m³/s) or US Customary (ft, cfs). Sets the Manning constant (1.0 or 1.486) and gravity."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Pilih sesuai data survei. Mengganti satuan setelah data diisi butuh konversi, dan fitur itu belum tersedia.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Choose to match your survey data. Changing units after data entry requires conversion (not available yet).</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "wizard.crs",
+   "title": {
+    "id": "Sistem koordinat",
+    "en": "Coordinate system"
+   },
+   "short": {
+    "id": "Kode EPSG atau WKT. Disimpan di file pendamping De-RAS dan dipakai RAS Mapper untuk memeriksa terrain.",
+    "en": "EPSG code or WKT. Stored in the De-RAS sidecar file and used by RAS Mapper to check terrains."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "mapper.crs"
+   ]
+  },
+  {
+   "id": "wizard.timezone",
+   "title": {
+    "id": "Zona waktu",
+    "en": "Time zone"
+   },
+   "short": {
+    "id": "Zona waktu proyek (default WIB, UTC+07:00). Disimpan di proyek. Analisis Unsteady memakai tanggal dan jam di plan apa adanya, tanpa konversi zona waktu.",
+    "en": "Project time zone (default WIB, UTC+07:00). Stored in the project. Unsteady Analysis uses the plan dates and times as entered, without time zone conversion."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Parsial</p>",
+    "en": "<p><b>Status:</b> Partial</p>"
+   },
+   "status": "partial",
+   "related": []
+  },
+  {
+   "id": "wizard.river",
+   "title": {
+    "id": "Nama sungai dan reach",
+    "en": "River and reach names"
+   },
+   "short": {
+    "id": "Maksimum 16 karakter masing-masing (batas format HEC-RAS).",
+    "en": "Maximum 16 characters each (HEC-RAS format limit)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "project.save",
+   "title": {
+    "id": "Simpan proyek",
+    "en": "Save project"
+   },
+   "short": {
+    "id": "Menyimpan semua file yang berubah dalam format HEC-RAS (Ctrl+S).",
+    "en": "Saves every changed file in HEC-RAS format (Ctrl+S)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Hanya file yang berubah yang ditulis ulang. De-RAS menulis ke file sementara dulu lalu menggantinya, jadi file lama tidak rusak kalau penyimpanan gagal. Bagian file yang tidak dikenal tetap tersimpan.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Only changed files are rewritten, atomically (temporary file then replace), so the old file is not damaged if saving fails. Unknown parts of files are preserved.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "project.close",
+   "title": {
+    "id": "Tutup proyek",
+    "en": "Close project"
+   },
+   "short": {
+    "id": "Menutup proyek dan kembali ke Beranda. Anda akan ditanya bila ada perubahan belum disimpan.",
+    "en": "Closes the project and returns to the start page. You are asked if there are unsaved changes."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "project.folder",
+   "title": {
+    "id": "Folder proyek",
+    "en": "Project folder"
+   },
+   "short": {
+    "id": "Membuka folder proyek di Windows Explorer.",
+    "en": "Opens the project folder in Windows Explorer."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.editor",
+   "title": {
+    "id": "Editor Penampang",
+    "en": "Cross Section Editor"
+   },
+   "short": {
+    "id": "Mengedit reach dan penampang melintang 1D: stasiun–elevasi, n Manning, jarak, tebing dan koefisien.",
+    "en": "Edit reaches and 1D cross sections: station–elevation, Manning's n, lengths, banks and coefficients."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap perubahan langsung terlihat di plot dan masuk ke file .g## saat Anda menyimpan (Ctrl+S).</p><h3>Langkah</h3><ol><li>Dari Data Geometri, klik ganda penampang di kanvas atau klik Penampang di palet.</li><li>Pilih reach dan RS di baris atas; PgUp/PgDn pindah ke penampang sebelum/berikutnya.</li><li>Edit tabel stasiun–elevasi; tempel dari Excel dengan Ctrl+V.</li><li>Isi jarak ke penampang hilir, tebing, n Manning dan koefisien di kartu Data penampang.</li><li>Tambah, salin atau hapus penampang dengan tombol di baris atas; simpan dengan Ctrl+S.</li></ol><h3>Data yang dibutuhkan</h3><p>Data survei penampang; nilai n Manning; jarak antarpenampang (kiri, alur, kanan).</p><h3>Hasil</h3><p>File .g## yang bisa dibuka HEC-RAS.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>All edits go straight into the .g## model and are saved with Ctrl+S. The cross-section plot updates immediately.</p><h3>Steps</h3><ol><li>From Geometric Data, double-click a cross section on the canvas or click Cross section in the palette.</li><li>Choose the reach and RS in the top row; PgUp/PgDn move to the previous/next section.</li><li>Edit the station–elevation table; paste from Excel with Ctrl+V.</li><li>Enter downstream lengths, banks, Manning&#x27;s n and coefficients in the Section data card.</li><li>Add, copy or delete sections with the buttons in the top row; save with Ctrl+S.</li></ol><h3>Data needed</h3><p>Cross-section survey data; Manning&#x27;s n values; reach lengths (left, channel, right).</p><h3>Result</h3><p>A .g## file that HEC-RAS can open.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "geometry.staelev",
+    "geometry.manning",
+    "geometry.lengths",
+    "geometry.banks"
+   ]
+  },
+  {
+   "id": "geometry.reach",
+   "title": {
+    "id": "Reach",
+    "en": "Reach"
+   },
+   "short": {
+    "id": "Ruas sungai berisi penampang berurutan. Tambah atau ganti nama reach; nama sungai/reach maks. 16 karakter.",
+    "en": "A river segment holding ordered cross sections. Add or rename reaches; river/reach names max. 16 characters."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Mengganti nama reach juga memperbarui rujukan di data aliran.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Renaming a reach also updates the references in the flow data.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "geometry.editor"
+   ]
+  },
+  {
+   "id": "geometry.xslist",
+   "title": {
+    "id": "Daftar penampang",
+    "en": "Cross-section list"
+   },
+   "short": {
+    "id": "Penampang reach ini, berurutan dari hulu (RS terbesar) ke hilir.",
+    "en": "Cross sections of this reach, ordered upstream (largest RS) to downstream."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Jembatan, gorong-gorong, dan struktur inline ikut ditampilkan dan diedit dari palet (klik dua kali tanda struktur di kanvas). Struktur lain tetap tersimpan di file tetapi belum dihitung.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Bridges, culverts and inline structures are shown and edited from the palette (double-click the structure mark on the canvas). Other structures are kept in the file but not computed yet.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.import",
+   "title": {
+    "id": "Impor survei CSV",
+    "en": "Import survey CSV"
+   },
+   "short": {
+    "id": "Mengimpor penampang dari CSV: RS, stasiun, elevasi per baris.",
+    "en": "Imports cross sections from CSV: RS, station, elevation per row."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap RS baru menjadi penampang baru di reach terpilih; n Manning, jarak dan tebing perlu dilengkapi setelahnya.</p><h3>Langkah</h3><ol><li>Siapkan CSV dengan kolom RS,Station,Elevation (desimal titik atau koma).</li><li>Klik Impor survei CSV dan pilih file.</li><li>Periksa ringkasan, lalu lengkapi data penampang.</li></ol><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Each new RS becomes a new cross section in the selected reach; Manning&#x27;s n, lengths and banks must be completed afterwards.</p><h3>Steps</h3><ol><li>Prepare a CSV with columns RS,Station,Elevation (dot or comma decimals).</li><li>Click Import survey CSV and choose the file.</li><li>Check the summary, then complete the cross-section data.</li></ol><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.rs",
+   "title": {
+    "id": "River Station (RS)",
+    "en": "River Station (RS)"
+   },
+   "short": {
+    "id": "Nomor penanda penampang. Angka yang lebih besar berarti lebih ke hulu.",
+    "en": "Cross-section identifier. A larger number is further upstream."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.description",
+   "title": {
+    "id": "Deskripsi",
+    "en": "Description"
+   },
+   "short": {
+    "id": "Catatan bebas untuk penampang ini (disimpan di file .g##).",
+    "en": "Free notes for this cross section (stored in the .g## file)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.lengths",
+   "title": {
+    "id": "Jarak ke penampang hilir",
+    "en": "Downstream reach lengths"
+   },
+   "short": {
+    "id": "Jarak dari penampang ini ke penampang berikutnya di hilir, untuk bantaran kiri, alur utama dan bantaran kanan.",
+    "en": "Distance from this section to the next one downstream, for the left overbank, main channel and right overbank."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Dipakai untuk menghitung kehilangan gesek dengan jarak berbobot debit. Penampang paling hilir boleh 0.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Used to compute friction loss with a discharge-weighted length. The most downstream section may be 0.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.banks",
+   "title": {
+    "id": "Stasiun tebing",
+    "en": "Bank stations"
+   },
+   "short": {
+    "id": "Stasiun tebing kiri dan kanan yang memisahkan bantaran dan alur utama.",
+    "en": "Left and right bank stations separating the overbanks from the main channel."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Harus berada di antara titik stasiun–elevasi pertama dan terakhir. Model Doctor memeriksa kesesuaiannya.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Must lie between the first and last station–elevation points. Model Doctor checks them.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.coefficients",
+   "title": {
+    "id": "Koefisien kontraksi dan ekspansi",
+    "en": "Contraction and expansion coefficients"
+   },
+   "short": {
+    "id": "Koefisien kehilangan akibat perubahan tinggi kecepatan. Umum: 0,1 dan 0,3.",
+    "en": "Loss coefficients for changes in velocity head. Typical: 0.1 and 0.3."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kehilangan = C × |Δ(αV²/2g)|. Kontraksi bila tinggi kecepatan hilir lebih besar, ekspansi bila lebih kecil.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Loss = C × |Δ(αV²/2g)|. Contraction when the downstream velocity head is larger, expansion when smaller.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.staelev",
+   "title": {
+    "id": "Tabel stasiun–elevasi",
+    "en": "Station–elevation table"
+   },
+   "short": {
+    "id": "Titik penampang dari kiri ke kanan (menghadap hilir). Stasiun harus tidak menurun.",
+    "en": "Cross-section points from left to right (looking downstream). Stations must not decrease."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Sel merah berisi nilai yang tidak valid dan tidak disimpan; nilai lama tetap dipakai. Data bisa ditempel dari Excel.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Red cells hold invalid values that are not stored; the previous value is kept. Pasting from Excel is supported.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.manning",
+   "title": {
+    "id": "Tabel n Manning",
+    "en": "Manning's n table"
+   },
+   "short": {
+    "id": "Titik ubah n Manning: mulai dari stasiun ini ke kanan berlaku nilai n tersebut.",
+    "en": "Manning's n breakpoints: from this station to the right the given n applies."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Bantaran dibagi di setiap titik ubah n; alur utama memakai n komposit bila ada lebih dari satu nilai.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Overbanks are subdivided at each n breakpoint; the main channel uses a composite n when it has more than one value.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.plot",
+   "title": {
+    "id": "Plot penampang",
+    "en": "Cross-section plot"
+   },
+   "short": {
+    "id": "Tampilan penampang dengan posisi tebing dan titik ubah n. Arahkan kursor untuk membaca koordinat.",
+    "en": "Cross-section view with bank positions and n breakpoints. Hover to read coordinates."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.station",
+   "title": {
+    "id": "Kolom Stasiun",
+    "en": "Station column"
+   },
+   "short": {
+    "id": "Jarak horizontal dari titik acuan kiri, dalam satuan panjang proyek.",
+    "en": "Horizontal distance from the left reference, in project length units."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.elevation",
+   "title": {
+    "id": "Kolom Elevasi",
+    "en": "Elevation column"
+   },
+   "short": {
+    "id": "Elevasi tanah pada stasiun tersebut, dalam satuan panjang proyek.",
+    "en": "Ground elevation at that station, in project length units."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.nstation",
+   "title": {
+    "id": "Kolom Stasiun n",
+    "en": "n Station column"
+   },
+   "short": {
+    "id": "Stasiun awal berlakunya nilai n.",
+    "en": "Station where the n value starts to apply."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.nvalue",
+   "title": {
+    "id": "Kolom nilai n",
+    "en": "n value column"
+   },
+   "short": {
+    "id": "Koefisien kekasaran Manning (tanpa satuan), mis. 0,03 untuk alur alami bersih.",
+    "en": "Manning's roughness coefficient (dimensionless), e.g. 0.03 for a clean natural channel."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.structures",
+   "title": {
+    "id": "Struktur",
+    "en": "Structures"
+   },
+   "short": {
+    "id": "Jembatan, gorong-gorong, dan struktur inline (bendung dengan pintu) diedit dari palet Data Geometri dan dihitung pada rezim subkritis. Struktur lateral, bukaan ganda, dan pompa belum tersedia.",
+    "en": "Bridges, culverts and inline structures (weirs with gates) are edited from the Geometric Data palette and computed in the subcritical regime. Lateral structures, multiple openings and pumps are not available yet."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Struktur ditempatkan di antara dua penampang menurut river station-nya. Penampang hulu dan hilir dipakai sebagai batas hitungan; jarak penampang hulu ke penampang hilir tetap diisi di penampang hulu.</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS, dan format blok struktur di file .g## belum diverifikasi. Struktur yang tidak terbaca tetap disimpan utuh dan Model Doctor menolak run.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>A structure sits between two cross sections by its river station. The upstream and downstream sections bound the computation; the length from the upstream to the downstream section stays on the upstream section.</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet and the structure block format in the .g## file is not verified. Structures that cannot be read are kept unchanged and Model Doctor refuses the run.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.bridge",
+    "geometry.culvert",
+    "geometry.inline"
+   ]
+  },
+  {
+   "id": "geometry.bridge",
+   "title": {
+    "id": "Jembatan",
+    "en": "Bridge"
+   },
+   "short": {
+    "id": "Jembatan dengan dek, pilar, dan aliran di atas dek.",
+    "en": "A bridge with deck, piers and flow over the deck."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Aliran rendah (muka air di bawah dek): metode energi melalui penampang di dalam jembatan dengan pilar sebagai penghalang, dan rumus Yarnell (K = 1,25); hasil dengan energi tertinggi dipakai. Aliran tinggi: rumus sluice gate (Cd dari rasio Y3/Z) atau orifice (C = 0,8) bila sisi hilir dek terendam, ditambah aliran pelimpah di atas dek dengan reduksi terendam Villemonte.</p><h3>Langkah</h3><ol><li>Buka Data Geometri, klik Jembatan / Gorong-gorong di palet.</li><li>Pilih reach, klik Tambah jembatan.</li><li>Isi river station (di antara dua penampang), jarak ke muka hulu, lebar dek, dan koefisien pelimpah.</li><li>Isi tabel dek (stasiun, elevasi atas, elevasi bawah) dan pilar.</li><li>Klik Tambah, lalu simpan proyek.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Type RM = 3 dengan baris Bridge Culvert-, Deck Dist Width WeirC, dan Pier di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan HEC-RAS; format blok di file .g## belum diverifikasi. Hanya rezim subkritis.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Low flow (water below the deck): energy method through sections inside the bridge with piers as obstructions, and the Yarnell equation (K = 1.25); the highest energy answer is used. High flow: sluice gate equation (Cd from Y3/Z) or orifice (C = 0.8) when the downstream low chord is submerged, plus weir flow over the deck with Villemonte submergence.</p><h3>Steps</h3><ol><li>Open Geometric Data, click Bridge / Culvert in the palette.</li><li>Pick the reach, click Add bridge.</li><li>Enter the river station (between two sections), distance to the upstream face, deck width and weir coefficient.</li><li>Fill the deck table (station, high chord, low chord) and the piers.</li><li>Click Add, then save the project.</li></ol><h3>Data needed</h3><p>A Type RM = 3 block with Bridge Culvert-, Deck Dist Width WeirC and Pier lines in the .g## file.</p><h3>Result</h3><p>Preview status: not compared with HEC-RAS yet; the block format in the .g## file is not verified. Subcritical regime only.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.structures",
+    "geometry.col.deck",
+    "geometry.col.pier"
+   ]
+  },
+  {
+   "id": "geometry.culvert",
+   "title": {
+    "id": "Gorong-gorong",
+    "en": "Culvert"
+   },
+   "short": {
+    "id": "Gorong-gorong lingkaran atau kotak di bawah timbunan jalan.",
+    "en": "Circular or box culverts under a road embankment."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Energi hulu adalah yang terbesar dari kontrol inlet (persamaan FHWA HDS-5 bentuk 1, chart 1, 2, 8 dan scale 1–3, dengan transisi tak terendam/terendam antara 3,5 dan 4,0) dan kontrol outlet (kehilangan masuk, gesekan, dan keluar dengan aliran penuh di atas maks(TW, (dc + D)/2)). Aliran di atas jalan dihitung sebagai pelimpah.</p><h3>Langkah</h3><ol><li>Klik Jembatan / Gorong-gorong di palet, lalu Tambah gorong-gorong.</li><li>Isi tabel jalan (elevasi atas = elevasi bawah untuk timbunan).</li><li>Isi satu baris per kelompok barrel identik: bentuk, bentang, tinggi, panjang, n, Ke, Kx, chart, scale, invert, dan stasiun barrel.</li><li>Klik Tambah.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris Culvert= di blok Type RM = 2 file .g## (satu baris per barrel).</p><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan HEC-RAS; format blok di file .g## belum diverifikasi. Hanya rezim subkritis.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The upstream energy is the larger of inlet control (FHWA HDS-5 form 1 equations, charts 1, 2, 8 and scales 1–3, with the unsubmerged/submerged transition between 3.5 and 4.0) and outlet control (entrance, friction and exit losses with full flow above max(TW, (dc + D)/2)). Flow over the road is computed as weir flow.</p><h3>Steps</h3><ol><li>Click Bridge / Culvert in the palette, then Add culvert.</li><li>Fill the road table (high chord = low chord for an embankment).</li><li>Enter one row per group of identical barrels: shape, span, rise, length, n, Ke, Kx, chart, scale, inverts and barrel stations.</li><li>Click Add.</li></ol><h3>Data needed</h3><p>Culvert= lines in a Type RM = 2 block of the .g## file (one line per barrel).</p><h3>Result</h3><p>Preview status: not compared with HEC-RAS yet; the block format in the .g## file is not verified. Subcritical regime only.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.structures",
+    "geometry.col.culvert"
+   ]
+  },
+  {
+   "id": "geometry.inline",
+   "title": {
+    "id": "Struktur inline",
+    "en": "Inline structure"
+   },
+   "short": {
+    "id": "Bendung atau pelimpah melintang sungai, dengan atau tanpa pintu.",
+    "en": "A weir or spillway across the river, with or without gates."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Aliran dibagi antara mercu pelimpah (Q = C L H^1,5, reduksi terendam Villemonte; bukaan pintu tidak ikut) dan pintu: sluice gate, orifice bila rasio muka air hilir di atas 0,67, atau pelimpah di atas ambang bila air belum mencapai bibir pintu. Energi hulu dicari dengan biseksi.</p><h3>Langkah</h3><ol><li>Klik Struktur Inline di palet, lalu Tambah struktur inline.</li><li>Isi tabel mercu (stasiun, elevasi).</li><li>Isi pintu: nama, lebar, tinggi, elevasi ambang, koefisien, stasiun tengah bukaan, dan bukaan untuk run steady.</li><li>Klik Tambah, lalu simpan proyek.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris IW Dist, #Inline Weir SE=, dan IW Gate Name di blok Type RM = 5 file .g##. Bukaan pintu disimpan di &lt;nama&gt;.deras.json karena De-RAS belum menulis bukaan ke file aliran.</p><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan HEC-RAS; format blok di file .g## belum diverifikasi. Hanya rezim subkritis.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Flow is split between the weir crest (Q = C L H^1.5, Villemonte submergence; gate openings excluded) and the gates: sluice gate, orifice when the tailwater ratio exceeds 0.67, or weir flow over the sill when the water does not reach the gate lip. The upstream energy is found by bisection.</p><h3>Steps</h3><ol><li>Click Inline Structure in the palette, then Add inline structure.</li><li>Fill the crest table (station, elevation).</li><li>Enter the gates: name, width, height, sill elevation, coefficient, opening centre stations and the opening for steady runs.</li><li>Click Add, then save the project.</li></ol><h3>Data needed</h3><p>IW Dist, #Inline Weir SE= and IW Gate Name lines in a Type RM = 5 block of the .g## file. Gate openings are stored in &lt;name&gt;.deras.json because De-RAS does not write them to the flow file yet.</p><h3>Result</h3><p>Preview status: not compared with HEC-RAS yet; the block format in the .g## file is not verified. Subcritical regime only.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.structures",
+    "geometry.col.weir",
+    "geometry.col.gate"
+   ]
+  },
+  {
+   "id": "geometry.col.deck",
+   "title": {
+    "id": "Kolom dek/jalan",
+    "en": "Deck/road columns"
+   },
+   "short": {
+    "id": "Stasiun, elevasi atas (permukaan dek atau jalan), dan elevasi bawah (bawah dek). Untuk timbunan jalan tanpa bukaan, elevasi bawah sama dengan elevasi atas.",
+    "en": "Station, high chord (top of deck or road) and low chord (underside of the deck). For a road embankment without an opening the low chord equals the high chord."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.col.pier",
+   "title": {
+    "id": "Kolom pilar",
+    "en": "Pier columns"
+   },
+   "short": {
+    "id": "Stasiun tengah, lebar, elevasi dasar, dan elevasi puncak pilar. Pilar mengurangi luas bukaan dan dipakai dalam rumus Yarnell.",
+    "en": "Centre station, width, bottom and top elevation of the pier. Piers reduce the opening area and are used in the Yarnell equation."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.col.culvert",
+   "title": {
+    "id": "Kolom gorong-gorong",
+    "en": "Culvert columns"
+   },
+   "short": {
+    "id": "Satu baris per kelompok barrel identik. Jumlah barrel sama dengan jumlah stasiun barrel. Chart dan scale mengikuti tabel FHWA HDS-5.",
+    "en": "One row per group of identical barrels. The number of barrels equals the number of barrel stations. Chart and scale follow the FHWA HDS-5 table."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.col.weir",
+   "title": {
+    "id": "Kolom mercu",
+    "en": "Crest columns"
+   },
+   "short": {
+    "id": "Stasiun dan elevasi mercu pelimpah dari kiri ke kanan.",
+    "en": "Station and crest elevation of the weir from left to right."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.col.gate",
+   "title": {
+    "id": "Kolom pintu",
+    "en": "Gate columns"
+   },
+   "short": {
+    "id": "Lebar dan tinggi tiap bukaan, elevasi ambang, koefisien sluice/orifice, stasiun tengah tiap bukaan, dan bukaan untuk run steady (kosong = terbuka penuh).",
+    "en": "Width and height of each opening, sill elevation, sluice/orifice coefficient, centre station of each opening and the opening for steady runs (empty = fully open)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.areas",
+   "title": {
+    "id": "Area khusus",
+    "en": "Special areas"
+   },
+   "short": {
+    "id": "Ineffective area, levee, dan obstruction diedit dan dihitung per penampang. Storage area dan area 2D belum tersedia.",
+    "en": "Ineffective areas, levees and obstructions are edited and computed per cross section. Storage areas and 2D areas are not available yet."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Buka Editor Penampang, lalu tombol Ineffective, Obstruction, atau Levee di kartu Data penampang.</p><p><b>Status:</b> Parsial</p>",
+    "en": "<h3>Purpose</h3><p>Open the Cross-Section Editor, then the Ineffective, Obstruction or Levee button on the Section data card.</p><p><b>Status:</b> Partial</p>"
+   },
+   "status": "partial",
+   "related": [
+    "geometry.ineffective",
+    "geometry.obstruction",
+    "geometry.levee"
+   ]
+  },
+  {
+   "id": "geometry.ineffective",
+   "title": {
+    "id": "Ineffective flow area",
+    "en": "Ineffective flow areas"
+   },
+   "short": {
+    "id": "Bagian penampang yang menampung air tetapi tidak ikut mengalirkannya, misalnya daerah di belakang tanggul jalan atau di samping jembatan.",
+    "en": "Parts of the section that hold water but do not convey it, for example behind a road embankment or beside a bridge."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Selama muka air tidak lebih tinggi dari elevasinya, air di rentang stasiun itu tidak dihitung dalam luas, keliling basah, dan konveyansi. Setelah muka air melewatinya, area ikut mengalir lagi. Area permanen tidak pernah ikut mengalir.</p><h3>Langkah</h3><ol><li>Buka Editor Penampang dan pilih penampang.</li><li>Klik Ineffective di kartu Data penampang.</li><li>Isi stasiun awal, stasiun akhir, elevasi, dan Permanen (0 atau 1) per baris.</li><li>Klik Terapkan, lalu simpan proyek.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris #XS Ineff= dan Permanent Ineff= di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: hasilnya belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>While the water surface is at or below its elevation, water inside the station range is left out of area, wetted perimeter and conveyance. Once the water surface is above it, the area conveys flow again. Permanent areas never convey flow.</p><h3>Steps</h3><ol><li>Open the Cross-Section Editor and pick a section.</li><li>Click Ineffective on the Section data card.</li><li>Enter start station, end station, elevation and Permanent (0 or 1) per row.</li><li>Click Apply, then save the project.</li></ol><h3>Data needed</h3><p>The #XS Ineff= and Permanent Ineff= lines of the .g## file.</p><h3>Result</h3><p>Preview status: results have not been compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.obstruction",
+   "title": {
+    "id": "Blocked obstruction",
+    "en": "Blocked obstructions"
+   },
+   "short": {
+    "id": "Bagian penampang yang padat, misalnya bangunan atau timbunan di bantaran.",
+    "en": "Solid parts of the section, for example buildings or fill on the overbank."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Di rentang stasiun itu, dasar penampang dinaikkan sampai elevasi yang diisi. Luas di bawahnya hilang dan sisi tegaknya menambah keliling basah.</p><h3>Langkah</h3><ol><li>Buka Editor Penampang dan pilih penampang.</li><li>Klik Obstruction di kartu Data penampang.</li><li>Isi stasiun awal, stasiun akhir, dan elevasi per baris.</li><li>Klik Terapkan.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris #Block Obstruct= di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: hasilnya belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Inside the station range the ground is raised to the given elevation. The area below disappears and its vertical sides add wetted perimeter.</p><h3>Steps</h3><ol><li>Open the Cross-Section Editor and pick a section.</li><li>Click Obstruction on the Section data card.</li><li>Enter start station, end station and elevation per row.</li><li>Click Apply.</li></ol><h3>Data needed</h3><p>The #Block Obstruct= line of the .g## file.</p><h3>Result</h3><p>Preview status: results have not been compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.levee",
+   "title": {
+    "id": "Levee",
+    "en": "Levees"
+   },
+   "short": {
+    "id": "Tanggul di kiri atau kanan alur yang menahan air sampai puncaknya terlewati.",
+    "en": "An embankment left or right of the channel that holds water back until its crest is overtopped."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Air di luar levee (kiri dari levee kiri, kanan dari levee kanan) tidak ikut mengalir sampai muka air lebih tinggi dari puncak levee. Kalau puncak levee lebih tinggi dari tanah, titik itu dinaikkan ke puncak levee.</p><h3>Langkah</h3><ol><li>Buka Editor Penampang dan pilih penampang.</li><li>Klik Levee di kartu Data penampang.</li><li>Centang levee kiri dan/atau kanan, isi stasiun dan elevasi puncaknya.</li><li>Klik Terapkan.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris Levee= di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: hasilnya belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Water beyond a levee (left of the left levee, right of the right levee) does not flow until the water surface is above the levee crest. When the crest is above the ground, the ground is raised there.</p><h3>Steps</h3><ol><li>Open the Cross-Section Editor and pick a section.</li><li>Click Levee on the Section data card.</li><li>Tick the left and/or right levee and enter its station and crest elevation.</li><li>Click Apply.</li></ol><h3>Data needed</h3><p>The Levee= line of the .g## file.</p><h3>Result</h3><p>Preview status: results have not been compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "geometry.col.blockstation",
+   "title": {
+    "id": "Kolom stasiun awal dan akhir",
+    "en": "Start and end station columns"
+   },
+   "short": {
+    "id": "Rentang stasiun area, dari kiri ke kanan, menghadap hilir. Harus di dalam penampang.",
+    "en": "Station range of the area, left to right looking downstream. Must lie inside the section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.blockelev",
+   "title": {
+    "id": "Kolom elevasi",
+    "en": "Elevation column"
+   },
+   "short": {
+    "id": "Untuk ineffective: muka air di atas elevasi ini membuat area ikut mengalir. Untuk obstruction: puncak bagian yang padat.",
+    "en": "For ineffective areas: above this water surface the area conveys flow. For obstructions: the top of the solid part."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.permanent",
+   "title": {
+    "id": "Kolom Permanen",
+    "en": "Permanent column"
+   },
+   "short": {
+    "id": "1 berarti area tidak pernah ikut mengalir, berapa pun muka airnya. 0 berarti area ikut mengalir setelah muka air melewati elevasinya.",
+    "en": "1 means the area never conveys flow, whatever the water surface. 0 means it conveys flow once the water surface is above its elevation."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.junction",
+   "title": {
+    "id": "Junction",
+    "en": "Junctions"
+   },
+   "short": {
+    "id": "Titik pertemuan atau percabangan reach.",
+    "en": "Where reaches join or split."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Ujung hilir reach yang masuk tersambung dengan ujung hulu reach yang keluar. Untuk aliran subkritis, muka air ujung reach yang masuk dihitung dari reach di hilirnya dengan persamaan energi melewati panjang junction; pada percabangan dipakai muka air tertinggi. Untuk aliran superkritis arahnya terbalik.</p><h3>Langkah</h3><ol><li>Di Data Geometri, klik Junction di palet.</li><li>Klik Tambah…, isi nama, centang reach masuk dan keluar.</li><li>Isi panjang untuk reach di sisi yang lebih dari satu.</li><li>Klik Terapkan, lalu Tutup.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Junct Name= di file .g##. Debit tiap reach diisi di Aliran Steady.</p><h3>Hasil</h3><p>Ujung reach di junction tidak butuh kondisi batas. Status Pratinjau: belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The downstream ends of incoming reaches connect to the upstream ends of outgoing reaches. For subcritical flow the water surface at the end of an incoming reach comes from the reach below it through the energy equation over the junction length; at a split the highest water surface is used. Supercritical flow works the other way round.</p><h3>Steps</h3><ol><li>In Geometric Data, click Junction in the palette.</li><li>Click Add…, enter a name, tick the incoming and outgoing reaches.</li><li>Enter lengths for the reaches on the side with more than one reach.</li><li>Click Apply, then Close.</li></ol><h3>Data needed</h3><p>The Junct Name= block of the .g## file. Each reach&#x27;s flow is entered in Steady Flow.</p><h3>Result</h3><p>Reach ends at a junction need no boundary condition. Preview status: not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "flow.editor",
+   "title": {
+    "id": "Data aliran steady",
+    "en": "Steady flow data"
+   },
+   "short": {
+    "id": "Profil, debit per lokasi dan kondisi batas hilir (file .f##).",
+    "en": "Profiles, discharge per location and downstream boundaries (.f## file)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap profil adalah satu skenario debit (mis. Q2, Q25, Q100) yang dihitung terpisah.</p><h3>Langkah</h3><ol><li>Atur jumlah profil dan namanya.</li><li>Isi debit di setiap lokasi perubahan debit (minimal di penampang paling hulu).</li><li>Pilih tipe batas hilir per reach dan profil, lalu isi nilainya.</li></ol><h3>Data yang dibutuhkan</h3><p>Debit puncak per profil; kemiringan energi hilir, elevasi muka air diketahui, atau rating curve.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Each profile is one discharge scenario (e.g. Q2, Q25, Q100) computed separately.</p><h3>Steps</h3><ol><li>Set the number of profiles and their names.</li><li>Enter discharges at each flow-change location (at least the most upstream section).</li><li>Choose the downstream boundary type per reach and profile, then enter its value.</li></ol><h3>Data needed</h3><p>Peak discharge per profile; downstream energy slope, known water surface, or rating curve.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "flow.boundary",
+    "flow.table"
+   ]
+  },
+  {
+   "id": "flow.profiles",
+   "title": {
+    "id": "Jumlah profil",
+    "en": "Number of profiles"
+   },
+   "short": {
+    "id": "Banyaknya skenario debit yang dihitung dalam satu run.",
+    "en": "Number of discharge scenarios computed in one run."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.profilenames",
+   "title": {
+    "id": "Nama profil",
+    "en": "Profile names"
+   },
+   "short": {
+    "id": "Nama tiap profil, maks. 12 karakter, tanpa koma.",
+    "en": "Name of each profile, max. 12 characters, no commas."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.table",
+   "title": {
+    "id": "Tabel debit",
+    "en": "Discharge table"
+   },
+   "short": {
+    "id": "Debit tiap profil di lokasi perubahan debit. Debit berlaku ke hilir sampai lokasi berikutnya.",
+    "en": "Discharge per profile at flow-change locations. A discharge applies downstream until the next location."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.csv",
+   "title": {
+    "id": "Impor/ekspor debit CSV",
+    "en": "Import/export flows CSV"
+   },
+   "short": {
+    "id": "Format: River,Reach,RS,<profil 1>,<profil 2>,… satu baris per lokasi.",
+    "en": "Format: River,Reach,RS,<profile 1>,<profile 2>,… one row per location."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.boundary",
+   "title": {
+    "id": "Kondisi batas",
+    "en": "Boundary conditions"
+   },
+   "short": {
+    "id": "Kondisi di ujung hilir reach (awal hitungan subkritis) dan di ujung hulu reach (awal hitungan superkritis).",
+    "en": "The condition at the downstream end of a reach (start of the subcritical computation) and at its upstream end (start of the supercritical computation)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Normal depth: masukkan kemiringan energi (mis. 0,001). Known WS: elevasi muka air. Kritis: tanpa nilai. Rating curve (hanya hilir): pasangan elevasi:debit. Ujung reach di junction tidak butuh batas.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Normal depth: enter the energy slope (e.g. 0.001). Known WS: a water surface elevation. Critical: no value. Rating curve (downstream only): stage:flow pairs. Reach ends at a junction need no boundary.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.location",
+   "title": {
+    "id": "Lokasi debit",
+    "en": "Flow location"
+   },
+   "short": {
+    "id": "Sungai, reach dan RS tempat debit ditetapkan.",
+    "en": "River, reach and RS where the discharge is set."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.discharge",
+   "title": {
+    "id": "Debit",
+    "en": "Discharge"
+   },
+   "short": {
+    "id": "Debit profil ini di lokasi tersebut, satuan m³/s (SI) atau cfs (US).",
+    "en": "Discharge of this profile at that location, in m³/s (SI) or cfs (US)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.bcreach",
+   "title": {
+    "id": "Reach / profil",
+    "en": "Reach / profile"
+   },
+   "short": {
+    "id": "Reach dan profil yang diberi kondisi batas.",
+    "en": "Reach and profile the boundary applies to."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.bctype",
+   "title": {
+    "id": "Tipe batas",
+    "en": "Boundary type"
+   },
+   "short": {
+    "id": "Normal depth, Muka air diketahui, Kedalaman kritis atau Rating curve.",
+    "en": "Normal depth, Known W.S., Critical depth or Rating curve."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.bcvalue",
+   "title": {
+    "id": "Nilai batas",
+    "en": "Boundary value"
+   },
+   "short": {
+    "id": "Kemiringan energi (normal depth) atau elevasi muka air (known WS).",
+    "en": "Energy slope (normal depth) or water surface elevation (known WS)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.bcrating",
+   "title": {
+    "id": "Rating curve",
+    "en": "Rating curve"
+   },
+   "short": {
+    "id": "Pasangan elevasi:debit dipisah titik koma, mis. 101,2:50; 102,0:120.",
+    "en": "Stage:flow pairs separated by semicolons, e.g. 101.2:50; 102.0:120."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Format penyimpanan rating curve di file .f## belum diverifikasi terhadap HEC-RAS.</p><p><b>Status:</b> Parsial</p>",
+    "en": "<h3>Purpose</h3><p>The .f## storage format of rating curves has not been verified against HEC-RAS.</p><p><b>Status:</b> Partial</p>"
+   },
+   "status": "partial",
+   "related": []
+  },
+  {
+   "id": "flow.unsteady",
+   "title": {
+    "id": "Aliran unsteady",
+    "en": "Unsteady flow"
+   },
+   "short": {
+    "id": "File .u## berisi kondisi batas yang berubah terhadap waktu dan debit awal. Diedit di Data Aliran Unsteady (Ctrl+4).",
+    "en": "A .u## file holds time-varying boundary conditions and initial flows. Edited in Unsteady Flow Data (Ctrl+4)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS dan format beberapa baris (Rating Curve, aliran lateral) belum diverifikasi. Baris yang tidak dikenal De-RAS disimpan apa adanya.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Preview status: results are not compared with HEC-RAS yet and some line formats (Rating Curve, lateral inflows) are not verified. Lines De-RAS does not recognise are kept unchanged.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "view.unsteady",
+    "view.run-unsteady"
+   ]
+  },
+  {
+   "id": "plan.editor",
+   "title": {
+    "id": "Plan",
+    "en": "Plan"
+   },
+   "short": {
+    "id": "Plan menggabungkan satu geometri dan satu data aliran dengan pengaturan perhitungan.",
+    "en": "A plan combines one geometry and one flow file with computation settings."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Plan diatur di Analisis Steady (Ctrl+5). Run memakai file yang tersimpan di disk; De-RAS menyimpan otomatis sebelum run.</p><h3>Langkah</h3><ol><li>Pilih plan atau buat plan baru dengan tombol +.</li><li>Pilih file geometri dan aliran.</li><li>Periksa toleransi dan metode kemiringan gesek.</li><li>Tekan F7 lalu F5.</li></ol><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Plans are set up in Steady Analysis (Ctrl+5). A run uses the files on disk; De-RAS saves automatically before running.</p><h3>Steps</h3><ol><li>Choose a plan or create a new one with the + button.</li><li>Choose the geometry and flow files.</li><li>Check tolerances and the friction slope method.</li><li>Press F7 then F5.</li></ol><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.title",
+   "title": {
+    "id": "Judul plan",
+    "en": "Plan title"
+   },
+   "short": {
+    "id": "Nama plan yang tampil di daftar plan.",
+    "en": "Plan name shown in the plan list."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.shortid",
+   "title": {
+    "id": "ID singkat",
+    "en": "Short ID"
+   },
+   "short": {
+    "id": "Pengenal singkat plan (Short Identifier di HEC-RAS).",
+    "en": "Short plan identifier (Short Identifier in HEC-RAS)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.files",
+   "title": {
+    "id": "File plan",
+    "en": "Plan files"
+   },
+   "short": {
+    "id": "File geometri (.g##) dan aliran steady (.f##) yang dipakai plan.",
+    "en": "Geometry (.g##) and steady flow (.f##) files used by the plan."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.regime",
+   "title": {
+    "id": "Rezim aliran",
+    "en": "Flow regime"
+   },
+   "short": {
+    "id": "Subkritis dihitung dari hilir ke hulu, superkritis dari hulu ke hilir, campuran memakai keduanya.",
+    "en": "Subcritical is computed from downstream to upstream, supercritical from upstream to downstream, mixed uses both."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Campuran: De-RAS menghitung profil subkritis lalu profil superkritis. Di tiap penampang dipakai profil dengan gaya spesifik (momentum) lebih besar, sehingga lokasi loncatan hidraulik ketemu. Subkritis butuh batas hilir, superkritis butuh batas hulu, campuran butuh keduanya. Kalau muka air tidak bisa dicari, De-RAS memakai kedalaman kritis dan memberi peringatan.</p><h3>Hasil</h3><p>Superkritis dan campuran berstatus Pratinjau: belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Mixed: De-RAS computes the subcritical profile and then the supercritical one. At each section the profile with the larger specific force (momentum) is used, which locates hydraulic jumps. Subcritical needs a downstream boundary, supercritical an upstream one, mixed both. When no water surface can be found, De-RAS uses critical depth and warns.</p><h3>Result</h3><p>Supercritical and mixed have Preview status: not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "plan.tolerance",
+   "title": {
+    "id": "Toleransi",
+    "en": "Tolerances"
+   },
+   "short": {
+    "id": "Batas selisih muka air hitung–asumsi untuk iterasi standard step dan kedalaman kritis.",
+    "en": "Allowed difference between computed and assumed water surface for standard-step and critical-depth iterations."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Default 0,003 m (SI) atau 0,01 ft (US).</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Default 0.003 m (SI) or 0.01 ft (US).</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.trials",
+   "title": {
+    "id": "Maksimum iterasi",
+    "en": "Maximum trials"
+   },
+   "short": {
+    "id": "Jumlah iterasi maksimum per penampang (default 20).",
+    "en": "Maximum number of iterations per cross section (default 20)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.maxerror",
+   "title": {
+    "id": "Toleransi selisih maksimum",
+    "en": "Maximum error tolerance"
+   },
+   "short": {
+    "id": "Bila iterasi tidak konvergen, hasil dengan selisih terkecil diterima jika di bawah nilai ini; bila tidak, dipakai kedalaman kritis.",
+    "en": "If iterations do not converge, the result with the smallest error is accepted when below this value; otherwise critical depth is used."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.friction",
+   "title": {
+    "id": "Metode kemiringan gesek",
+    "en": "Friction slope method"
+   },
+   "short": {
+    "id": "Cara merata-ratakan kemiringan gesek antar dua penampang.",
+    "en": "How the friction slope between two sections is averaged."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Rata-rata konveyansi (default), rata-rata aritmetik, geometrik atau harmonik, sesuai persamaan di Hydraulic Reference Manual.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Average conveyance (default), arithmetic, geometric or harmonic mean, per the equations in the Hydraulic Reference Manual.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "sim.doctor",
+   "title": {
+    "id": "Model Doctor",
+    "en": "Model Doctor"
+   },
+   "short": {
+    "id": "Memeriksa data sebelum run (F7): penampang, tebing, n, jarak, debit, kondisi batas, dan plan.",
+    "en": "Checks data before running (F7): sections, banks, n, lengths, discharges, boundaries and plan."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kesalahan (⛔) harus diperbaiki sebelum run. Peringatan (⚠) boleh diabaikan asal Anda yakin. Kalau F5 ditekan saat masih ada kesalahan, muncul pop-up yang menyebut tiap kesalahan, lokasinya, dan cara memperbaikinya, kadang dengan tombol perbaikan cepat (misalnya Ganti ke Subkritis).</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Errors (⛔) must be fixed before running. Warnings (⚠) may be ignored if you are sure. If you press F5 while errors remain, a pop-up lists each error, where it is and how to fix it, sometimes with a quick-fix button (for example Switch to Subcritical).</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "sim.run",
+   "title": {
+    "id": "Jalankan plan",
+    "en": "Run plan"
+   },
+   "short": {
+    "id": "Menghitung plan aktif di proses terpisah (F5) dan membuka Jendela Komputasi. Proyek disimpan dulu.",
+    "en": "Computes the current plan in a separate process (F5) and opens the Compute window. The project is saved first."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Hasil ditulis ke &lt;nama&gt;.&lt;plan&gt;.deras-results.json bersama metadata (versi solver, waktu, hash SHA-256 file masukan) agar bisa direproduksi.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Results are written to &lt;name&gt;.&lt;plan&gt;.deras-results.json with metadata (solver version, time, SHA-256 of input files) for reproducibility.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "sim.other",
+   "title": {
+    "id": "Mesin lain",
+    "en": "Other engines"
+   },
+   "short": {
+    "id": "Unsteady 1D/2D, quasi-unsteady sedimen, dan kualitas air.",
+    "en": "Unsteady 1D/2D, quasi-unsteady sediment and water quality."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>1D unsteady tersedia sebagai Pratinjau sejak 0.2.2. Sejak 0.2.3: area 2D, storage area, struktur lateral dan pompa (M6), sedimen quasi-unsteady (M7), kualitas air (M8). Semuanya Pratinjau; lihat Bantuan → Matriks fitur.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>1D unsteady is available as Preview since 0.2.2. Since 0.2.3: 2D areas, storage areas, lateral structures and pumps (M6), quasi-unsteady sediment (M7), water quality (M8). All are Preview; see Help → Feature matrix.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "results.view",
+   "title": {
+    "id": "Hasil simulasi",
+    "en": "Simulation results"
+   },
+   "short": {
+    "id": "Tabel, profil memanjang, plot penampang dan pesan run untuk plan aktif.",
+    "en": "Table, longitudinal profile, cross-section plot and run messages for the current plan."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Baris asal data menyebut solver, versi, dan waktu run. Kalau data berubah setelah run, muncul peringatan bahwa hasil mungkin sudah tidak berlaku. Hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The origin line names the solver, version and run time. If input files change after the run, a stale-results warning appears. Equivalence with HEC-RAS has not been validated.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.xsplot",
+   "title": {
+    "id": "Plot penampang hasil",
+    "en": "Result cross-section plot"
+   },
+   "short": {
+    "id": "Penampang dengan muka air, garis energi dan muka air kritis profil terpilih.",
+    "en": "Cross section with water surface, energy grade and critical WS of the selected profile."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.export",
+   "title": {
+    "id": "Ekspor CSV",
+    "en": "Export CSV"
+   },
+   "short": {
+    "id": "Menyimpan tabel hasil semua profil ke CSV (UTF-8, desimal titik).",
+    "en": "Saves the results table of all profiles to CSV (UTF-8, dot decimals)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.report",
+   "title": {
+    "id": "Laporan run (HTML, Word, PDF)",
+    "en": "Run report (HTML, Word, PDF)"
+   },
+   "short": {
+    "id": "Laporan run dwibahasa: metadata, pesan dan tabel hasil, sebagai HTML, Word (.docx) atau PDF.",
+    "en": "A bilingual run report with metadata, messages and the results table, as HTML, Word (.docx) or PDF."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Klik Laporan… di Hasil dan pilih formatnya. Word dan PDF berisi judul, data run, pesan, dan tabel hasil semua profil (untuk unsteady: profil Max WS). File Word dibuat langsung oleh De-RAS tanpa Microsoft Word dan bisa diedit di Word atau LibreOffice. PDF memakai ukuran A4 mendatar.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Click Report… in Results and choose the format. Word and PDF contain the title, run data, messages and the results table of all profiles (for unsteady: the Max WS profile). The Word file is written by De-RAS itself, without Microsoft Word, and can be edited in Word or LibreOffice. The PDF uses A4 landscape.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.export"
+   ]
+  },
+  {
+   "id": "results.col.reach",
+   "title": {
+    "id": "Reach",
+    "en": "Reach"
+   },
+   "short": {
+    "id": "Sungai / reach penampang.",
+    "en": "River / reach of the section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.rs",
+   "title": {
+    "id": "RS",
+    "en": "RS"
+   },
+   "short": {
+    "id": "River Station penampang.",
+    "en": "River Station of the section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.q",
+   "title": {
+    "id": "Q total",
+    "en": "Q total"
+   },
+   "short": {
+    "id": "Debit total yang mengalir di penampang.",
+    "en": "Total discharge through the section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.minchel",
+   "title": {
+    "id": "Elevasi dasar minimum",
+    "en": "Min Ch El"
+   },
+   "short": {
+    "id": "Elevasi terendah alur utama.",
+    "en": "Lowest main-channel elevation."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.ws",
+   "title": {
+    "id": "Muka air",
+    "en": "W.S. Elev"
+   },
+   "short": {
+    "id": "Elevasi muka air hasil hitungan.",
+    "en": "Computed water surface elevation."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.critws",
+   "title": {
+    "id": "Muka air kritis",
+    "en": "Crit W.S."
+   },
+   "short": {
+    "id": "Elevasi muka air pada kedalaman kritis (energi spesifik minimum).",
+    "en": "Water surface at critical depth (minimum specific energy)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.eg",
+   "title": {
+    "id": "Garis energi",
+    "en": "E.G. Elev"
+   },
+   "short": {
+    "id": "Muka air + αV²/2g.",
+    "en": "Water surface + αV²/2g."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.egslope",
+   "title": {
+    "id": "Kemiringan energi",
+    "en": "E.G. Slope"
+   },
+   "short": {
+    "id": "Kemiringan gesek di penampang, (Q/K)².",
+    "en": "Friction slope at the section, (Q/K)²."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.velch",
+   "title": {
+    "id": "Kecepatan alur",
+    "en": "Vel Chnl"
+   },
+   "short": {
+    "id": "Kecepatan rata-rata di alur utama.",
+    "en": "Mean velocity in the main channel."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.area",
+   "title": {
+    "id": "Luas basah",
+    "en": "Flow Area"
+   },
+   "short": {
+    "id": "Luas aliran total (bantaran + alur).",
+    "en": "Total flow area (overbanks + channel)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.topwidth",
+   "title": {
+    "id": "Lebar muka air",
+    "en": "Top Width"
+   },
+   "short": {
+    "id": "Lebar permukaan air.",
+    "en": "Width of the water surface."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.froude",
+   "title": {
+    "id": "Froude alur",
+    "en": "Froude # Chl"
+   },
+   "short": {
+    "id": "Bilangan Froude alur utama; < 1 subkritis.",
+    "en": "Main-channel Froude number; < 1 is subcritical."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.qparts",
+   "title": {
+    "id": "Pembagian debit",
+    "en": "Flow distribution"
+   },
+   "short": {
+    "id": "Debit di bantaran kiri, alur dan bantaran kanan menurut konveyansi.",
+    "en": "Discharge in the left overbank, channel and right overbank by conveyance."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.losses",
+   "title": {
+    "id": "Kehilangan energi",
+    "en": "Energy losses"
+   },
+   "short": {
+    "id": "Kehilangan gesek dan kontraksi/ekspansi ke penampang hilir.",
+    "en": "Friction and contraction/expansion losses to the downstream section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.trials",
+   "title": {
+    "id": "Iterasi",
+    "en": "Trials"
+   },
+   "short": {
+    "id": "Jumlah iterasi standard step di penampang ini.",
+    "en": "Number of standard-step iterations at this section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.col.notes",
+   "title": {
+    "id": "Catatan",
+    "en": "Notes"
+   },
+   "short": {
+    "id": "Peringatan perhitungan, misalnya muka air diambil sama dengan kritis atau rasio konveyansi di luar 0,7–1,4.",
+    "en": "Computation warnings, e.g. WS set to critical or conveyance ratio outside 0.7–1.4."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "map.schematic",
+   "title": {
+    "id": "Skema alur",
+    "en": "River schematic"
+   },
+   "short": {
+    "id": "Kanvas Data Geometri: garis tengah reach dengan tanda penampang. Klik untuk memilih, klik ganda untuk membuka Editor Penampang.",
+    "en": "Geometric Data canvas: reach centrelines with cross-section ticks. Click to select, double-click to open the Cross Section Editor."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Ini bukan peta GIS. Kalau file tidak punya koordinat reach, reach digambar lurus dengan panjang sesuai jarak antarpenampang.</p><p><b>Status:</b> Parsial</p>",
+    "en": "<h3>Purpose</h3><p>This is not a georeferenced GIS map. When the file has no reach coordinates, a straight line scaled by the section spacing is drawn.</p><p><b>Status:</b> Partial</p>"
+   },
+   "status": "partial",
+   "related": []
+  },
+  {
+   "id": "map.gis",
+   "title": {
+    "id": "Peta GIS",
+    "en": "GIS map"
+   },
+   "short": {
+    "id": "Peta ada di RAS Mapper (Ctrl+6).",
+    "en": "The map is in RAS Mapper (Ctrl+6)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Pratinjau</p>",
+    "en": "<p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "view.mapper"
+   ]
+  },
+  {
+   "id": "tools.settings",
+   "title": {
+    "id": "Tampilan",
+    "en": "Appearance"
+   },
+   "short": {
+    "id": "Tema, ukuran huruf dan bahasa di view Opsi. Tersimpan untuk pengguna Windows ini.",
+    "en": "Theme, font size and language in the Options view. Stored for this Windows user."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "tools.language",
+   "title": {
+    "id": "Bahasa",
+    "en": "Language"
+   },
+   "short": {
+    "id": "English (bawaan) atau Bahasa Indonesia. Jendela disusun ulang tanpa menutup proyek.",
+    "en": "English (default) or Indonesian. The window is rebuilt without closing the project."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "tools.theme",
+   "title": {
+    "id": "Tema",
+    "en": "Theme"
+   },
+   "short": {
+    "id": "Tema Gelap (bawaan) atau Tema Terang (biru muda), keduanya memakai warna logo De-RAS. Jendela disusun ulang tanpa menutup proyek.",
+    "en": "Dark Theme (default) or Light Theme (light blue), both using the De-RAS logo colours. The window is rebuilt without closing the project."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "tools.fontsize",
+   "title": {
+    "id": "Ukuran huruf",
+    "en": "Font size"
+   },
+   "short": {
+    "id": "Ukuran huruf dasar antarmuka (11–20 px).",
+    "en": "Base interface font size (11–20 px)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "help.features",
+   "title": {
+    "id": "Matriks fitur",
+    "en": "Feature matrix"
+   },
+   "short": {
+    "id": "Daftar fitur dengan status Selesai, Pratinjau, Parsial atau Belum tersedia, beserta milestone rencananya.",
+    "en": "List of features with status Done, Preview, Partial or Not available, with the planned milestone."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "help.about",
+   "title": {
+    "id": "Tentang De-RAS",
+    "en": "About De-RAS"
+   },
+   "short": {
+    "id": "Versi, pemberitahuan pihak ketiga dan pernyataan bahwa De-RAS tidak berafiliasi dengan HEC.",
+    "en": "Version, third-party notices and the statement that De-RAS is not affiliated with HEC."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "view.geometry",
+   "title": {
+    "id": "Data Geometri",
+    "en": "Geometric Data"
+   },
+   "short": {
+    "id": "Skema sungai, palet editor, dan data reach serta penampang (Ctrl+2).",
+    "en": "River schematic, editor palette, and reach and cross-section data (Ctrl+2)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kanvas menampilkan garis tengah reach dan penampang dari file .g##. Palet di kiri membuka editor; fitur yang belum dibuat tampil terkunci dengan milestone rencananya.</p><h3>Langkah</h3><ol><li>Pilih file geometri di baris atas.</li><li>Klik objek di kanvas untuk melihat ringkasannya di kartu Objek terpilih.</li><li>Klik ganda penampang untuk membuka Editor Penampang.</li><li>Gunakan Gambar reach untuk menggambar reach baru, atau Tabel… untuk mengedit jarak dan koefisien semua penampang.</li><li>Simpan dengan Ctrl+S.</li></ol><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The canvas shows reach centrelines and cross sections from the .g## file. The palette on the left opens editors; features not built yet are shown locked with their planned milestone.</p><h3>Steps</h3><ol><li>Choose the geometry file in the top row.</li><li>Click an object on the canvas to see its summary in the Selected object card.</li><li>Double-click a cross section to open the Cross Section Editor.</li><li>Use Draw reach to draw a new reach, or Tables… to edit lengths and coefficients of all sections.</li><li>Save with Ctrl+S.</li></ol><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "geometry.palette",
+    "geometry.selected",
+    "map.schematic",
+    "view.xs"
+   ]
+  },
+  {
+   "id": "view.xs",
+   "title": {
+    "id": "Editor Penampang",
+    "en": "Cross Section Editor"
+   },
+   "short": {
+    "id": "Sub-view Data Geometri untuk mengedit satu penampang: stasiun–elevasi, tebing, n, jarak dan koefisien.",
+    "en": "Sub-view of Geometric Data for editing one cross section: station–elevation, banks, n, lengths and coefficients."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Plot menampilkan tanah dan, bila ada hasil, muka air sampai 4 profil. Bila data berubah setelah run, plot memberi catatan hasil usang.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The plot shows the ground and, when results exist, the water surface for up to 4 profiles. If data changed after the run, the plot notes that the results are stale.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "geometry.editor",
+    "geometry.xsdata",
+    "geometry.staelev"
+   ]
+  },
+  {
+   "id": "view.steady",
+   "title": {
+    "id": "Aliran Steady",
+    "en": "Steady Flow"
+   },
+   "short": {
+    "id": "Profil, debit per lokasi dan kondisi batas (file .f##, Ctrl+3).",
+    "en": "Profiles, discharge per location and boundary conditions (.f## file, Ctrl+3)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap profil adalah satu skenario debit yang dihitung terpisah. Kondisi batas hulu dan hilir diatur per reach dan profil.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Each profile is one discharge scenario computed separately. Upstream and downstream boundaries are set per reach and profile.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "flow.editor",
+    "flow.boundary",
+    "flow.table"
+   ]
+  },
+  {
+   "id": "view.analysis",
+   "title": {
+    "id": "Analisis Steady",
+    "en": "Steady Analysis"
+   },
+   "short": {
+    "id": "Plan: pilihan geometri dan aliran, rezim, opsi hitung dan Model Doctor (Ctrl+5).",
+    "en": "Plan: geometry and flow selection, regime, computation options and Model Doctor (Ctrl+5)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Model Doctor memeriksa ulang setengah detik setelah data berubah. Klik ganda pesan untuk membuka penampang yang disebut. F5 menghitung plan ini.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Model Doctor refreshes automatically half a second after data changes. Double-click a message to open the cross section it refers to. F5 computes this plan.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "plan.editor",
+    "sim.doctor",
+    "sim.run",
+    "plan.output"
+   ]
+  },
+  {
+   "id": "geometry.palette",
+   "title": {
+    "id": "Palet editor",
+    "en": "Editor palette"
+   },
+   "short": {
+    "id": "Tombol menuju editor geometri. Gembok menandai fitur yang belum tersedia.",
+    "en": "Buttons that open the geometry editors. A lock marks features not available yet."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Reach, Junction, Penampang, Jembatan / Gorong-gorong, Struktur Inline, Struktur Lateral, Storage Area, Area 2D, Sambungan SA/2D, BC line 2D, dan Stasiun Pompa bisa dipakai; selain reach dan penampang semuanya berstatus Pratinjau. Breakline dan wilayah n untuk area 2D belum tersedia di versi ini. Arahkan kursor ke tombol terkunci untuk melihat alasannya.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Reaches, Junctions, Cross sections, Bridges / Culverts, Inline structures, Lateral structures, Storage areas, 2D areas, SA/2D connections, 2D BC lines and Pump stations work; apart from reaches and cross sections they have Preview status. Breaklines and n regions for 2D areas are not available in this version. Hover a locked button to see why.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.selected",
+   "title": {
+    "id": "Objek terpilih",
+    "en": "Selected object"
+   },
+   "short": {
+    "id": "Ringkasan reach, penampang atau struktur yang dipilih di kanvas.",
+    "en": "Summary of the reach, cross section or structure selected on the canvas."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Untuk penampang: jumlah titik, tebing, n, jarak dan koefisien, dengan tombol ke Editor Penampang. Untuk reach: jumlah penampang, panjang alur, koordinat, dan Kelola reach…</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>For a cross section: point count, banks, n, lengths and coefficients, with a button to the Cross Section Editor. For a reach: section count, channel length, coordinates, and Manage reaches…</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.newfile",
+   "title": {
+    "id": "File geometri baru",
+    "en": "New geometry file"
+   },
+   "short": {
+    "id": "Membuat file .g## berikutnya di proyek ini, kosong atau salinan file yang aktif.",
+    "en": "Creates the next .g## file in this project, empty or as a copy of the current file."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.xsdata",
+   "title": {
+    "id": "Data penampang",
+    "en": "Section data"
+   },
+   "short": {
+    "id": "RS, deskripsi, jarak ke hilir, tebing, n Manning dan koefisien penampang ini.",
+    "en": "RS, description, downstream lengths, banks, Manning's n and coefficients of this section."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kalau n berbeda-beda di dalam penampang, pakai Tabel titik n…. Ineffective area, levee, dan obstruction diedit lewat tombolnya masing-masing. n vertikal belum tersedia di versi ini; datanya di file tetap tersimpan.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>When n varies within the section, use n breakpoint table…. Ineffective areas, levees and obstructions are edited with their own buttons. Vertical n is still locked (M8); its data in the file is preserved.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "geometry.lengths",
+    "geometry.banks",
+    "geometry.manning",
+    "geometry.coefficients"
+   ]
+  },
+  {
+   "id": "flow.newfile",
+   "title": {
+    "id": "File aliran baru",
+    "en": "New flow file"
+   },
+   "short": {
+    "id": "Membuat file .f## berikutnya, kosong atau salinan file yang aktif.",
+    "en": "Creates the next .f## file, empty or as a copy of the current file."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "flow.col.bcupstream",
+   "title": {
+    "id": "Batas hulu",
+    "en": "Upstream boundary"
+   },
+   "short": {
+    "id": "Kondisi batas di penampang paling hulu reach: normal depth, muka air diketahui, atau kedalaman kritis.",
+    "en": "Boundary at the most upstream section of the reach: normal depth, known water surface or critical depth."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Hanya dipakai rezim superkritis dan campuran. Ujung reach yang tersambung ke junction tidak butuh batas.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Only used by the supercritical and mixed regimes. Reach ends at a junction need no boundary.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "plan.output",
+   "title": {
+    "id": "File hasil",
+    "en": "Results file"
+   },
+   "short": {
+    "id": "Tempat hasil run disimpan.",
+    "en": "Where the run results are stored."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS menulis hasil ke &lt;nama&gt;.&lt;plan&gt;.deras-results.json (dipakai De-RAS sendiri) dan ke &lt;nama&gt;.&lt;plan&gt;.hdf dengan susunan file hasil HEC-RAS (Results/Steady/Output/...). File .hdf yang dibuat program lain tidak ditimpa; hasil De-RAS lalu ditulis ke &lt;nama&gt;.&lt;plan&gt;.deras.hdf.</p><h3>Hasil</h3><p>Susunan .hdf berstatus Pratinjau: belum dibuka di HEC-RAS (uji K3).</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS writes results to &lt;name&gt;.&lt;plan&gt;.deras-results.json (used by De-RAS itself) and to &lt;name&gt;.&lt;plan&gt;.hdf with the HEC-RAS results layout (Results/Steady/Output/...). A .hdf written by another program is never overwritten; De-RAS then writes &lt;name&gt;.&lt;plan&gt;.deras.hdf.</p><h3>Result</h3><p>The .hdf layout has Preview status: not opened in HEC-RAS yet (test K3).</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "home.control",
+   "title": {
+    "id": "Kontrol Proyek",
+    "en": "Project Control"
+   },
+   "short": {
+    "id": "Ringkasan proyek terbuka: file, satuan, plan aktif, file geometri dan aliran.",
+    "en": "Summary of the open project: files, units, current plan, geometry and flow files."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Klik baris untuk membuka view terkait. Deskripsi proyek bisa diedit dari kartu ini.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Click a row to open the related view. The project description can be edited from this card.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "home.description"
+   ]
+  },
+  {
+   "id": "home.description",
+   "title": {
+    "id": "Deskripsi proyek",
+    "en": "Project description"
+   },
+   "short": {
+    "id": "Catatan bebas tentang proyek, disimpan di file .prj seperti HEC-RAS.",
+    "en": "Free notes about the project, stored in the .prj file as in HEC-RAS."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "options",
+   "title": {
+    "id": "Opsi",
+    "en": "Options"
+   },
+   "short": {
+    "id": "Tampilan (tema, ukuran huruf, bahasa), satuan dan pengaturan proyek (Ctrl+,).",
+    "en": "Appearance (theme, font size, language), units and project settings (Ctrl+,)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Tampilan tersimpan untuk pengguna Windows ini. Pengaturan proyek tersimpan di file pendamping De-RAS dan ikut proyek.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Appearance is stored for this Windows user. Project settings are stored in the De-RAS sidecar file and travel with the project.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "tools.theme",
+    "tools.fontsize",
+    "tools.language",
+    "project.settings"
+   ]
+  },
+  {
+   "id": "project.settings",
+   "title": {
+    "id": "Pengaturan proyek",
+    "en": "Project settings"
+   },
+   "short": {
+    "id": "Sistem koordinat, zona waktu, versi HEC-RAS sasaran dan catatan proyek.",
+    "en": "Coordinate system, time zone, target HEC-RAS version and project notes."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Disimpan di file pendamping De-RAS (bukan di file HEC-RAS), sehingga file HEC-RAS tidak berubah.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Stored in the De-RAS sidecar file (not in the HEC-RAS files), so the HEC-RAS files are not changed.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "project.crs",
+    "project.timezone",
+    "project.target",
+    "project.notes"
+   ]
+  },
+  {
+   "id": "project.units",
+   "title": {
+    "id": "Satuan proyek",
+    "en": "Project units"
+   },
+   "short": {
+    "id": "SI atau US Customary, ditetapkan saat proyek dibuat dan disimpan di file .prj.",
+    "en": "SI or US Customary, set when the project is created and stored in the .prj file."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Opsi → Konversi satuan proyek SI ↔ US… (Pratinjau, sejak 0.2.3) membuat salinan proyek di folder yang sama dengan nama baru, lalu mengubah satuan salinan: geometri (stasiun, elevasi, panjang, struktur), aliran steady dan unsteady, toleransi plan, dan data modul De-RAS (bukaan pintu, pompa, breach, sedimen, kualitas air). n Manning, koefisien kontraksi/ekspansi dan konsentrasi tidak berubah. Koefisien pelimpah dikali √0,3048 (atau dibagi). Proyek asli tidak diubah.</p><h3>Langkah</h3><ol><li>Simpan proyek.</li><li>Buka Opsi dan klik Konversi satuan proyek SI ↔ US….</li><li>Terima atau ubah nama salinan.</li><li>Pilih Buka salinan, lalu hitung ulang semua plan.</li></ol><h3>Data yang dibutuhkan</h3><p>Terrain, gambar dan layer GIS tidak dikonversi; satuan elevasinya tetap seperti semula, jadi peta dan area 2D di salinan memakai terrain yang satuannya berbeda sampai terrain diganti. File hasil tidak ikut disalin. Angka di file HEC-RAS dibulatkan ke lebar kolom 8 karakter.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Options → Convert project units SI ↔ US… (Preview, since 0.2.3) copies the project into the same folder under a new name, then converts the copy: geometry (stations, elevations, lengths, structures), steady and unsteady flow, plan tolerances, and the De-RAS module data (gate openings, pumps, breaches, sediment, water quality). Manning&#x27;s n, contraction/expansion coefficients and concentrations do not change. Weir coefficients are multiplied (or divided) by √0.3048. The original project is not changed.</p><h3>Steps</h3><ol><li>Save the project.</li><li>Open Options and click Convert project units SI ↔ US….</li><li>Accept or change the name of the copy.</li><li>Choose Open the copy, then compute every plan again.</li></ol><h3>Data needed</h3><p>Terrains, pictures and GIS layers are not converted; their elevation units stay as they were, so maps and 2D areas of the copy use a terrain in other units until it is replaced. Result files are not copied. Numbers in the HEC-RAS files are rounded to the 8-character column width.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "project.crs",
+   "title": {
+    "id": "Sistem koordinat",
+    "en": "Coordinate system"
+   },
+   "short": {
+    "id": "Kode EPSG atau WKT proyek. Dipakai RAS Mapper.",
+    "en": "The project's EPSG code or WKT. Used by RAS Mapper."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Nilai ini sama dengan yang diatur di RAS Mapper → Atur proyeksi…; mengubah salah satunya mengubah keduanya. RAS Mapper memakainya untuk memeriksa apakah terrain berada di sistem koordinat yang sama. Reproyeksi belum tersedia.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>This is the same value as RAS Mapper → Set projection…; changing either one changes both. RAS Mapper uses it to check that terrains are in the same coordinate system. Reprojection is not available yet.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "mapper.crs"
+   ]
+  },
+  {
+   "id": "project.timezone",
+   "title": {
+    "id": "Zona waktu",
+    "en": "Time zone"
+   },
+   "short": {
+    "id": "Zona waktu proyek, mis. UTC+07:00 (WIB). Analisis Unsteady memakai tanggal dan jam di plan apa adanya, tanpa konversi zona waktu.",
+    "en": "Project time zone, e.g. UTC+07:00 (WIB). Unsteady Analysis uses the plan dates and times as entered, without time zone conversion."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Parsial</p>",
+    "en": "<p><b>Status:</b> Partial</p>"
+   },
+   "status": "partial",
+   "related": []
+  },
+  {
+   "id": "project.target",
+   "title": {
+    "id": "Versi HEC-RAS sasaran",
+    "en": "Target HEC-RAS version"
+   },
+   "short": {
+    "id": "Versi format file HEC-RAS yang ditulis De-RAS. Saat ini hanya 7.00.",
+    "en": "The HEC-RAS file format version De-RAS writes. Currently 7.00 only."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "project.notes",
+   "title": {
+    "id": "Catatan proyek",
+    "en": "Project notes"
+   },
+   "short": {
+    "id": "Catatan internal De-RAS untuk proyek ini (tidak ditulis ke file HEC-RAS).",
+    "en": "De-RAS internal notes for this project (not written to the HEC-RAS files)."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "messages.drawer",
+   "title": {
+    "id": "Panel Pesan",
+    "en": "Messages drawer"
+   },
+   "short": {
+    "id": "Log aktivitas dan daftar temuan Model Doctor (Ctrl+M).",
+    "en": "Activity log and the Model Doctor findings (Ctrl+M)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Jumlah kesalahan dan peringatan di bilah status selalu terbaru. Klik ganda pesan untuk membuka lokasinya.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The error and warning counts in the status bar are always current. Double-click a finding to open its location.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "sim.doctor"
+   ]
+  },
+  {
+   "id": "compute.window",
+   "title": {
+    "id": "Jendela Komputasi",
+    "en": "Compute window"
+   },
+   "short": {
+    "id": "Jendela terpisah yang menampilkan langkah, kemajuan, antrean dan log run (F5).",
+    "en": "A separate window showing the steps, progress, queue and log of a run (F5)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Jendela utama tetap bisa dipakai selama run. Menutup jendela saat run berjalan menanyakan apakah run dibatalkan atau tetap jalan di latar.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The main window stays usable during a run. Closing the window during a run asks whether to cancel the run or keep it running in the background.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "compute.steps",
+    "compute.queue",
+    "compute.log",
+    "sim.run"
+   ]
+  },
+  {
+   "id": "compute.steps",
+   "title": {
+    "id": "Langkah komputasi",
+    "en": "Compute steps"
+   },
+   "short": {
+    "id": "Persiapan geometri, simulasi steady, dan penulisan hasil. Peta genangan dibuat sesudahnya di RAS Mapper.",
+    "en": "Geometry preprocessing, steady simulation, writing results. The inundation map is made afterwards in RAS Mapper."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "mapper.inundation"
+   ]
+  },
+  {
+   "id": "compute.queue",
+   "title": {
+    "id": "Antrean run",
+    "en": "Run queue"
+   },
+   "short": {
+    "id": "Plan yang menunggu dihitung; dijalankan satu per satu.",
+    "en": "Plans waiting to be computed; they run one at a time."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "compute.log",
+   "title": {
+    "id": "Log run",
+    "en": "Run log"
+   },
+   "short": {
+    "id": "Pesan mesin hitung selama run. Batalkan menghentikan mesin dengan aman. Kalau run dibatalkan atau gagal, hasil lama tidak berubah.",
+    "en": "Engine messages during the run. Cancel stops the engine safely; previous results are unchanged when a run is cancelled or fails."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.xs",
+   "title": {
+    "id": "Hasil: penampang",
+    "en": "Results: cross section"
+   },
+   "short": {
+    "id": "Penampang dengan muka air, garis energi dan muka air kritis untuk profil terpilih.",
+    "en": "Cross section with water surface, energy grade and critical WS for the chosen profile."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "results.profile",
+   "title": {
+    "id": "Hasil: profil memanjang",
+    "en": "Results: profile"
+   },
+   "short": {
+    "id": "Dasar saluran, muka air dan garis energi sepanjang reach.",
+    "en": "Channel invert, water surface and energy grade along the reach."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "results.rating",
+   "title": {
+    "id": "Hasil: kurva rating",
+    "en": "Results: rating curve"
+   },
+   "short": {
+    "id": "Muka air, garis energi, dan muka air kritis terhadap debit di satu penampang, dari semua profil plan.",
+    "en": "Water surface, energy grade and critical WS against flow at one cross section, from all profiles of the plan."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Makin banyak profil, makin halus kurvanya. Titik di antara profil adalah garis lurus, bukan hasil hitungan.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>More profiles give a smoother curve. Between profiles the line is straight, not computed.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "results.general",
+   "title": {
+    "id": "Hasil: plot umum",
+    "en": "Results: general plot"
+   },
+   "short": {
+    "id": "Satu variabel hasil (mis. kecepatan, Froude) terhadap jarak sepanjang reach.",
+    "en": "One result variable (e.g. velocity, Froude) against distance along the reach."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "results.detail",
+   "title": {
+    "id": "Hasil: tabel rinci",
+    "en": "Results: detailed table"
+   },
+   "short": {
+    "id": "Semua besaran hasil di satu penampang untuk profil terpilih: bantaran kiri, alur dan bantaran kanan.",
+    "en": "All result quantities at one cross section for the chosen profile: left overbank, channel and right overbank."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "results.table",
+   "title": {
+    "id": "Hasil: tabel profil",
+    "en": "Results: profile table"
+   },
+   "short": {
+    "id": "Tabel hasil semua penampang dan profil; bisa diekspor ke CSV.",
+    "en": "Results table for all sections and profiles; can be exported to CSV."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.export"
+   ]
+  },
+  {
+   "id": "results.messages",
+   "title": {
+    "id": "Hasil: pesan run",
+    "en": "Results: run messages"
+   },
+   "short": {
+    "id": "Peringatan dan catatan perhitungan dari run terakhir, per penampang.",
+    "en": "Warnings and computation notes from the last run, per cross section."
+   },
+   "body": {
+    "id": "<p><b>Status:</b> Tersedia</p>",
+    "en": "<p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "results.view"
+   ]
+  },
+  {
+   "id": "view.mapper",
+   "title": {
+    "id": "RAS Mapper",
+    "en": "RAS Mapper"
+   },
+   "short": {
+    "id": "Peta proyek: terrain, gambar latar, garis tengah reach, garis potong penampang, dan peta genangan (Ctrl+6).",
+    "en": "The project map: terrain, background pictures, reach centrelines, cross-section cut lines and inundation maps (Ctrl+6)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Seret untuk menggeser peta, roda mouse untuk zoom, Home atau Pas layar untuk menampilkan semuanya. Klik garis potong untuk memilih penampangnya. Garis potong putus-putus berarti penampang itu belum punya garis potong di file; De-RAS meletakkannya tegak lurus garis tengah menurut panjang ruas.</p><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan RAS Mapper HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Drag to pan, mouse wheel to zoom, Home or Fit to show everything. Click a cut line to select its cross section. A dashed cut line means the section has no cut line in the file; De-RAS places it across the centreline using the reach lengths.</p><h3>Result</h3><p>Preview status: not compared with HEC-RAS RAS Mapper yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "mapper.terrain",
+    "mapper.cut",
+    "mapper.inundation",
+    "mapper.crs"
+   ]
+  },
+  {
+   "id": "mapper.layers",
+   "title": {
+    "id": "Lapisan peta",
+    "en": "Map layers"
+   },
+   "short": {
+    "id": "Proyeksi, terrain, gambar latar, geometri, dan peta genangan, dari bawah ke atas.",
+    "en": "Projection, terrains, background pictures, geometry and inundation map, from bottom to top."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Daftar terrain dan gambar latar disimpan di file De-RAS proyek (.deras.json). File HEC-RAS tidak diubah.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The terrain and picture lists are stored in the De-RAS project file (.deras.json). HEC-RAS files are not changed.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "mapper.crs",
+   "title": {
+    "id": "Proyeksi (CRS)",
+    "en": "Projection (CRS)"
+   },
+   "short": {
+    "id": "Sistem koordinat peta proyek: kode EPSG atau teks WKT dari file .prj ESRI.",
+    "en": "The project's map coordinate system: an EPSG code or the WKT text of an ESRI .prj file."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS belum memproyeksi ulang data. Terrain, gambar latar, garis tengah, dan garis potong harus memakai sistem koordinat yang sama. Kalau EPSG terrain berbeda dengan proyeksi proyek, De-RAS memberi peringatan. Proyeksi dari RAS Mapper HEC-RAS (.rasmap) ditampilkan bila ada.</p><h3>Langkah</h3><ol><li>Buka RAS Mapper (Ctrl+6).</li><li>Klik Atur proyeksi….</li><li>Ketik kode EPSG, atau klik Dari file .prj… atau Dari terrain.</li><li>Klik Terapkan, lalu simpan proyek.</li></ol><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS does not reproject data yet. Terrains, pictures, centrelines and cut lines must use the same coordinate system. De-RAS warns when a terrain&#x27;s EPSG differs from the project projection. The projection of HEC-RAS RAS Mapper (.rasmap) is shown when present.</p><h3>Steps</h3><ol><li>Open RAS Mapper (Ctrl+6).</li><li>Click Set projection….</li><li>Type an EPSG code, or click From .prj file… or From terrain.</li><li>Click Apply, then save the project.</li></ol><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "mapper.terrain",
+   "title": {
+    "id": "Terrain",
+    "en": "Terrain"
+   },
+   "short": {
+    "id": "Model elevasi (DEM) dalam GeoTIFF satu band.",
+    "en": "An elevation model (DEM) as a single-band GeoTIFF."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS membaca GeoTIFF tanpa kompresi, LZW, atau Deflate, dalam bentuk strip atau tile, nilai bulat atau desimal. BigTIFF dan raster yang diputar belum didukung. File di luar folder proyek disalin ke folder Terrain proyek. Terrain RAS Mapper HEC-RAS (.hdf) tidak dibaca langsung, tetapi GeoTIFF sumbernya di folder yang sama ikut dimuat. Kalau beberapa terrain bertumpuk, yang paling atas di daftar dipakai.</p><h3>Langkah</h3><ol><li>Klik Tambah GeoTIFF… di kartu Terrain.</li><li>Pilih file .tif.</li><li>Simpan proyek agar terrain tercatat.</li></ol><h3>Data yang dibutuhkan</h3><p>Daftar terrain di .deras.json; file GeoTIFF di folder Terrain.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS reads GeoTIFFs without compression, LZW or Deflate, as strips or tiles, with integer or floating-point values. BigTIFF and rotated rasters are not supported yet. Files outside the project folder are copied to the project&#x27;s Terrain folder. HEC-RAS RAS Mapper terrains (.hdf) are not read directly, but their source GeoTIFFs in the same folder are loaded. Where terrains overlap, the first one in the list is used.</p><h3>Steps</h3><ol><li>Click Add GeoTIFF… on the Terrain card.</li><li>Choose the .tif file.</li><li>Save the project so the terrain is recorded.</li></ol><h3>Data needed</h3><p>Terrain list in .deras.json; GeoTIFF files in the Terrain folder.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "mapper.picture",
+   "title": {
+    "id": "Gambar latar",
+    "en": "Background pictures"
+   },
+   "short": {
+    "id": "Foto udara atau peta (PNG, JPG, BMP) dengan world file.",
+    "en": "Aerial photos or maps (PNG, JPG, BMP) with a world file."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>World file berisi enam angka yang menaruh gambar di peta (mis. foto.pgw untuk foto.png, foto.jgw untuk foto.jpg). Gambar yang diputar belum didukung. Gambar tidak disalin; hanya lokasinya yang dicatat.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>A world file holds six numbers that place the picture on the map (e.g. photo.pgw for photo.png, photo.jgw for photo.jpg). Rotated pictures are not supported yet. Pictures are not copied; only their location is recorded.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "mapper.geometry",
+   "title": {
+    "id": "Geometri di peta",
+    "en": "Geometry on the map"
+   },
+   "short": {
+    "id": "Garis tengah reach (biru, panah ke hilir) dan garis potong penampang (kuning).",
+    "en": "Reach centrelines (blue, arrow pointing downstream) and cross-section cut lines (yellow)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Garis potong dari file (XS GIS Cut Line) digambar utuh. Penampang tanpa garis potong digambar putus-putus, tegak lurus garis tengah dan berjarak sesuai panjang ruas alur utama.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Cut lines from the file (XS GIS Cut Line) are solid. Sections without one are dashed, across the centreline and spaced by the main-channel lengths.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "mapper.cut",
+   "title": {
+    "id": "Potong penampang dari terrain",
+    "en": "Cut cross sections from the terrain"
+   },
+   "short": {
+    "id": "Membuat penampang baru dari garis yang digambar di atas terrain, atau memperbarui penampang terpilih.",
+    "en": "Creates a new cross section from a line drawn on the terrain, or updates the selected one."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Titik stasiun-elevasi diambil setiap jarak sampel (bawaan: ukuran sel terrain), lalu titik yang segaris dibuang sampai paling banyak 500 titik. Tebing, n Manning, dan koefisien disalin dari penampang tetangga dan digeser ke titik terdekat. Panjang ruas penampang hulu dibagi dua menurut posisi garis. Garis yang digambar dari kanan ke kiri dibalik otomatis.</p><h3>Langkah</h3><ol><li>Klik Potong penampang.</li><li>Klik titik-titik garis dari tebing kiri ke kanan (menghadap hilir), memotong garis tengah reach.</li><li>Klik ganda atau Enter untuk selesai.</li><li>Periksa RS usulan, klik Buat penampang.</li><li>Periksa tebing dan n di Editor Penampang, lalu simpan geometri.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris XS GIS Cut Line= di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan RAS Mapper HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Station-elevation points are sampled every sample spacing (default: the terrain cell size), then points on a straight line are dropped until at most 500 remain. Bank stations, Manning&#x27;s n and coefficients are copied from the neighbouring section and moved to the nearest points. The upstream section&#x27;s reach lengths are split by the position of the line. A line drawn right to left is reversed automatically.</p><h3>Steps</h3><ol><li>Click Cut cross section.</li><li>Click the line points from the left to the right bank (looking downstream), crossing the reach centreline.</li><li>Double-click or press Enter to finish.</li><li>Check the proposed RS, click Create section.</li><li>Check banks and n in the Cross-Section Editor, then save the geometry.</li></ol><h3>Data needed</h3><p>The XS GIS Cut Line= line of the .g## file.</p><h3>Result</h3><p>Preview status: not compared with HEC-RAS RAS Mapper yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "mapper.inundation",
+   "title": {
+    "id": "Peta genangan",
+    "en": "Inundation map"
+   },
+   "short": {
+    "id": "Kedalaman dan muka air satu profil steady di atas terrain.",
+    "en": "Depth and water surface of one steady profile over the terrain."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Di antara dua garis potong yang berurutan, muka air diinterpolasi linear menurut jarak ke kedua garis. Kedalaman = muka air - terrain, hanya yang positif. Grid mengikuti terrain pertama. Belum ada cek keterhubungan aliran, jadi cekungan terpisah di dalam batas garis potong ikut tergenang.</p><h3>Langkah</h3><ol><li>Jalankan plan (F5).</li><li>Di RAS Mapper pilih profil di kartu Peta genangan.</li><li>Klik Hitung peta.</li></ol><h3>Hasil</h3><p>Status Pratinjau: belum dibandingkan dengan RAS Mapper HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Between two consecutive cut lines the water surface is interpolated linearly by the distances to both lines. Depth = water surface - terrain, positive values only. The grid follows the first terrain. There is no flow connectivity check yet, so separate depressions inside the cut lines are flooded too.</p><h3>Steps</h3><ol><li>Run the plan (F5).</li><li>In RAS Mapper pick a profile on the Inundation map card.</li><li>Click Compute map.</li></ol><h3>Result</h3><p>Preview status: not compared with HEC-RAS RAS Mapper yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "mapper.export"
+   ]
+  },
+  {
+   "id": "mapper.export",
+   "title": {
+    "id": "Ekspor peta",
+    "en": "Map export"
+   },
+   "short": {
+    "id": "Kedalaman atau muka air sebagai GeoTIFF, atau gambar peta sebagai PNG.",
+    "en": "Depth or water surface as GeoTIFF, or the map picture as PNG."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>GeoTIFF ditulis float32 tanpa kompresi dengan no data -9999 dan sistem koordinat terrain, sehingga bisa dibuka di QGIS atau ArcGIS.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>GeoTIFFs are float32, uncompressed, no data -9999, with the terrain&#x27;s coordinate system, so they open in QGIS or ArcGIS.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "results.3d",
+   "title": {
+    "id": "Hasil: perspektif 3D",
+    "en": "Results: 3D perspective"
+   },
+   "short": {
+    "id": "Penampang satu reach dan muka air satu profil dalam tampilan tiga dimensi.",
+    "en": "The cross sections of one reach and the water surface of one profile in a three-dimensional view."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Penampang diletakkan menurut panjang ruas alur utama, berpusat di tengah alur. Seret untuk memutar, roda mouse untuk mengubah skala vertikal.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Sections are placed by the main-channel lengths, centred on the channel. Drag to rotate, mouse wheel to change the vertical exaggeration.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "view.unsteady",
+   "title": {
+    "id": "Data Aliran Unsteady",
+    "en": "Unsteady Flow Data"
+   },
+   "short": {
+    "id": "Kondisi batas yang berubah terhadap waktu dan debit awal (file .u##, Ctrl+4).",
+    "en": "Time-varying boundary conditions and initial flows (.u## file, Ctrl+4)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kiri: daftar lokasi kondisi batas. Kanan: data lokasi terpilih (jenis, interval, tabel nilai dan grafik). Di bawah daftar: debit awal per reach.</p><h3>Langkah</h3><ol><li>Pilih file aliran unsteady di atas daftar, atau buat baru dengan tombol +.</li><li>Klik Lengkapi ujung reach. Ujung hulu mendapat hidrograf debit, ujung hilir normal depth.</li><li>Pilih tiap lokasi dan isi datanya.</li><li>Isi debit awal setiap reach.</li><li>Simpan proyek, lalu buka Analisis Unsteady.</li></ol><h3>Data yang dibutuhkan</h3><p>File .u## (Boundary Location, Interval, Flow Hydrograph, Stage Hydrograph, Friction Slope, Initial Flow Loc).</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Hanya rezim subkritis, satu alur per reach. Struktur lateral, storage area, area 2D, sambungan, dan pompa dihitung sejak 0.2.3 (juga Pratinjau); jembatan, gorong-gorong, dan struktur inline belum dihitung di unsteady.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Left: the list of boundary locations. Right: the data of the selected location (type, interval, value table and plot). Below the list: initial flows per reach.</p><h3>Steps</h3><ol><li>Pick the unsteady flow file above the list, or create one with the + button.</li><li>Click Add reach ends. Upstream ends get a flow hydrograph, downstream ends normal depth.</li><li>Select each location and enter its data.</li><li>Enter the initial flow of every reach.</li><li>Save the project, then open Unsteady Analysis.</li></ol><h3>Data needed</h3><p>The .u## file (Boundary Location, Interval, Flow Hydrograph, Stage Hydrograph, Friction Slope, Initial Flow Loc lines).</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet. Subcritical only, one flow path per reach. Lateral structures, storage areas, 2D areas, connections and pumps are computed since 0.2.3 (also Preview); bridges, culverts and inline structures are not computed in unsteady runs yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "unsteady.boundaries",
+    "unsteady.initial",
+    "unsteady.data",
+    "view.run-unsteady"
+   ]
+  },
+  {
+   "id": "unsteady.boundaries",
+   "title": {
+    "id": "Lokasi kondisi batas",
+    "en": "Boundary condition locations"
+   },
+   "short": {
+    "id": "Setiap ujung hulu dan hilir reach yang tidak tersambung ke junction butuh satu kondisi batas.",
+    "en": "Every upstream and downstream reach end not connected to a junction needs one boundary condition."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Lengkapi ujung reach menambahkan lokasi yang belum ada. Aliran lateral… menambah debit masuk di tengah reach. Hapus membuang lokasi terpilih. Model Doctor memberi kesalahan bila ada ujung reach tanpa kondisi batas atau dengan jenis yang tidak cocok (mis. normal depth di hulu).</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Add reach ends adds the missing locations. Lateral inflow… adds an inflow inside a reach. Delete removes the selected location. Model Doctor reports an error when a reach end has no boundary condition or an unsuitable type (e.g. normal depth upstream).</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "unsteady.types",
+    "unsteady.lateral"
+   ]
+  },
+  {
+   "id": "unsteady.initial",
+   "title": {
+    "id": "Debit awal",
+    "en": "Initial flows"
+   },
+   "short": {
+    "id": "Debit di setiap reach pada awal simulasi.",
+    "en": "The flow in every reach at the start of the simulation."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS menghitung profil steady (backwater subkritis) dengan debit ini dan kondisi batas hilir pada jam pertama, lalu memakainya sebagai keadaan awal. Kosong berarti nilai pertama hidrograf hulu dipakai.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS computes a steady (subcritical backwater) profile with these flows and the downstream boundary at the first hour, and uses it as the initial state. Empty means the first value of the upstream hydrograph is used.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "view.unsteady"
+   ]
+  },
+  {
+   "id": "unsteady.data",
+   "title": {
+    "id": "Data kondisi batas",
+    "en": "Boundary condition data"
+   },
+   "short": {
+    "id": "Jenis, interval, dan nilai kondisi batas pada lokasi terpilih.",
+    "en": "Type, interval and values of the boundary condition at the selected location."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Tabel dan grafik menyesuaikan jenis: hidrograf (nilai per interval), normal depth (kemiringan gesek), atau rating curve (pasangan elevasi–debit).</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The table and plot follow the type: hydrograph (one value per interval), normal depth (friction slope) or rating curve (stage–flow pairs).</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "unsteady.types",
+    "unsteady.interval",
+    "unsteady.hydrograph",
+    "unsteady.normal",
+    "unsteady.rating"
+   ]
+  },
+  {
+   "id": "unsteady.types",
+   "title": {
+    "id": "Jenis kondisi batas",
+    "en": "Boundary condition types"
+   },
+   "short": {
+    "id": "Hidrograf debit, hidrograf muka air, aliran lateral, aliran lateral merata, normal depth, dan rating curve.",
+    "en": "Flow hydrograph, stage hydrograph, lateral inflow, uniform lateral inflow, normal depth and rating curve."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Hulu: hidrograf debit atau muka air. Hilir: hidrograf muka air, normal depth, rating curve, atau hidrograf debit. Di tengah reach: aliran lateral (satu titik) atau aliran lateral merata (dibagi rata menurut panjang antara dua RS). Jenis lain (mis. gate opening, IB stage/flow) tetap disimpan di file tetapi belum dihitung.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Upstream: flow or stage hydrograph. Downstream: stage hydrograph, normal depth, rating curve or flow hydrograph. Inside a reach: lateral inflow (one point) or uniform lateral inflow (spread by length between two RS). Other types (e.g. gate openings, IB stage/flow) stay in the file but are not computed yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.interval",
+   "title": {
+    "id": "Interval",
+    "en": "Intervals"
+   },
+   "short": {
+    "id": "Jarak waktu antara dua nilai data, langkah hitung, atau keluaran: 1MIN sampai 1DAY.",
+    "en": "The time between two data values, computation steps or outputs: 1MIN to 1DAY."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Interval data hidrograf tidak harus sama dengan interval komputasi; nilai di antaranya diinterpolasi linear. Interval keluaran sebaiknya kelipatan interval komputasi. Hasil disimpan paling banyak 100 waktu keluaran.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The hydrograph data interval need not match the computation interval; values in between are interpolated linearly. The output interval should be a multiple of the computation interval. At most 100 output times are stored.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.hydrograph",
+   "title": {
+    "id": "Hidrograf",
+    "en": "Hydrograph"
+   },
+   "short": {
+    "id": "Deret nilai debit atau muka air, satu per interval data, mulai dari waktu mulai simulasi.",
+    "en": "A series of flow or stage values, one per data interval, starting at the simulation start time."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Ketik atau tempel nilai di tabel; grafik di samping ikut berubah. Kalau simulasi lebih panjang dari hidrograf, nilai terakhir dipakai terus dan Model Doctor memberi peringatan.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Type or paste values into the table; the plot alongside updates. If the simulation is longer than the hydrograph, the last value is held and Model Doctor warns.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.normal",
+   "title": {
+    "id": "Normal depth",
+    "en": "Normal depth"
+   },
+   "short": {
+    "id": "Debit hilir dari persamaan Manning dengan kemiringan gesek yang diisi.",
+    "en": "The downstream flow from Manning's equation with the given friction slope."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Di setiap langkah, debit di ujung hilir dihitung dari muka air saat itu: Q = K·√S. Kemiringan harus lebih dari 0.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>At every step the downstream flow is computed from the current water surface: Q = K·√S. The slope must be greater than 0.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.rating",
+   "title": {
+    "id": "Rating curve",
+    "en": "Rating curve"
+   },
+   "short": {
+    "id": "Hubungan elevasi–debit di ujung hilir.",
+    "en": "A stage–flow relation at the downstream end."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Isi pasangan elevasi dan debit yang naik. Di antara titik dipakai interpolasi linear. Format baris Rating Curve di file .u## belum diverifikasi dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Enter increasing stage and flow pairs. Linear interpolation is used between points. The Rating Curve line format of the .u## file is not verified against HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.lateral",
+   "title": {
+    "id": "Aliran lateral",
+    "en": "Lateral inflow"
+   },
+   "short": {
+    "id": "Debit masuk di tengah reach, di satu penampang atau merata di antara dua penampang.",
+    "en": "Inflow inside a reach, at one cross section or spread between two cross sections."
+   },
+   "body": {
+    "id": "<h3>Langkah</h3><ol><li>Klik Aliran lateral….</li><li>Pilih reach, jenis, dan RS masuk (dan RS akhir untuk aliran merata).</li><li>Klik Tambah, lalu isi hidrografnya.</li></ol><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Steps</h3><ol><li>Click Lateral inflow….</li><li>Pick the reach, the type and the inflow RS (and the end RS for uniform inflow).</li><li>Click Add, then fill its hydrograph.</li></ol><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "view.run-unsteady",
+   "title": {
+    "id": "Analisis Unsteady",
+    "en": "Unsteady Flow Analysis"
+   },
+   "short": {
+    "id": "Plan unsteady: file geometri dan aliran, waktu simulasi, interval, opsi, dan Model Doctor.",
+    "en": "Unsteady plan: geometry and flow files, simulation window, intervals, options and Model Doctor."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Metode: skema implisit Preissmann empat titik pada persamaan Saint-Venant, iterasi Newton per langkah. Keadaan awal dari profil steady. Junction memakai muka air sama dan kontinuitas. Model Doctor menolak run bila geometri berisi jembatan, gorong-gorong, atau struktur inline.</p><h3>Langkah</h3><ol><li>Pilih plan unsteady, atau klik + untuk membuat plan baru.</li><li>Pilih file geometri dan file aliran unsteady.</li><li>Isi tanggal dan jam mulai dan selesai (mis. 01JAN2024, 0000).</li><li>Pilih interval komputasi dan keluaran.</li><li>Tekan F7 untuk Model Doctor, lalu F5 untuk menghitung.</li></ol><h3>Data yang dibutuhkan</h3><p>Baris Simulation Date, Computation Interval, Output Interval, UNET Theta, UNET ZTol, dan UNET MaxIter di file .p##.</p><h3>Hasil</h3><p>Hasil ditulis ke &lt;nama&gt;.&lt;plan&gt;.deras-results.json: profil Max WS, profil setiap waktu keluaran, dan time series muka air dan debit di semua penampang. File .hdf hasil unsteady belum ditulis. Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Hanya rezim subkritis, satu alur per reach. Struktur lateral, storage area, area 2D, sambungan, dan pompa dihitung sejak 0.2.3 (juga Pratinjau); jembatan, gorong-gorong, dan struktur inline belum dihitung di unsteady.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Method: the four-point Preissmann implicit scheme on the Saint-Venant equations, Newton iterations per step. The initial state comes from a steady profile. Junctions use equal stage and continuity. Model Doctor refuses the run when the geometry contains bridges, culverts or inline structures.</p><h3>Steps</h3><ol><li>Pick an unsteady plan, or click + to create one.</li><li>Pick the geometry file and the unsteady flow file.</li><li>Enter the start and end dates and times (e.g. 01JAN2024, 0000).</li><li>Choose the computation and output intervals.</li><li>Press F7 for Model Doctor, then F5 to compute.</li></ol><h3>Data needed</h3><p>Simulation Date, Computation Interval, Output Interval, UNET Theta, UNET ZTol and UNET MaxIter lines in the .p## file.</p><h3>Result</h3><p>Results go to &lt;name&gt;.&lt;plan&gt;.deras-results.json: a Max WS profile, a profile for every output time, and stage and flow time series at every section. No unsteady .hdf results file is written yet. Preview status: results are not compared with HEC-RAS yet. Subcritical only, one flow path per reach. Lateral structures, storage areas, 2D areas, connections and pumps are computed since 0.2.3 (also Preview); bridges, culverts and inline structures are not computed in unsteady runs yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "unsteady.time",
+    "unsteady.interval",
+    "unsteady.theta",
+    "results.hydrograph"
+   ]
+  },
+  {
+   "id": "unsteady.time",
+   "title": {
+    "id": "Waktu simulasi",
+    "en": "Simulation window"
+   },
+   "short": {
+    "id": "Tanggal dan jam mulai dan selesai simulasi.",
+    "en": "Start and end date and time of the simulation."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Tanggal ditulis DDMMMYYYY (mis. 01JAN2024), jam HHMM (mis. 0000 atau 2400). Selesai harus setelah mulai. Hidrograf dimulai pada waktu mulai.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Dates are written DDMMMYYYY (e.g. 01JAN2024), times HHMM (e.g. 0000 or 2400). The end must be after the start. Hydrographs start at the start time.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "unsteady.theta",
+   "title": {
+    "id": "Theta dan toleransi",
+    "en": "Theta and tolerances"
+   },
+   "short": {
+    "id": "Bobot implisit (0,5–1,0), toleransi muka air, dan iterasi maksimum per langkah.",
+    "en": "Implicit weighting (0.5–1.0), water surface tolerance and maximum iterations per step."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Theta 1,0 paling stabil; nilai mendekati 0,6 lebih akurat tetapi bisa berosilasi. Iterasi Newton berhenti bila perubahan muka air di bawah toleransi. Bila iterasi maksimum tercapai, langkah tetap diterima dan dicatat sebagai peringatan.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Theta 1.0 is the most stable; values near 0.6 are more accurate but can oscillate. Newton iterations stop when the water surface change is below the tolerance. When the maximum is reached the step is still accepted and logged as a warning.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "results.hydrograph",
+   "title": {
+    "id": "Hasil: hidrograf",
+    "en": "Results: hydrographs"
+   },
+   "short": {
+    "id": "Muka air dan debit terhadap waktu di satu penampang, dari hasil plan unsteady.",
+    "en": "Stage and flow against time at one cross section, from an unsteady plan result."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Pilih reach dan penampang. Grafik atas: muka air dengan garis dasar alur. Grafik bawah: debit. Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Hanya rezim subkritis, satu alur per reach. Struktur lateral, storage area, area 2D, sambungan, dan pompa dihitung sejak 0.2.3 (juga Pratinjau); jembatan, gorong-gorong, dan struktur inline belum dihitung di unsteady.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Pick the reach and section. Top plot: stage with the channel invert line. Bottom plot: flow. Preview status: results are not compared with HEC-RAS yet. Subcritical only, one flow path per reach. Lateral structures, storage areas, 2D areas, connections and pumps are computed since 0.2.3 (also Preview); bridges, culverts and inline structures are not computed in unsteady runs yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "results.timeseries"
+   ]
+  },
+  {
+   "id": "results.timeseries",
+   "title": {
+    "id": "Hasil: time series",
+    "en": "Results: time series"
+   },
+   "short": {
+    "id": "Tabel tanggal, jam, muka air, dan debit di satu penampang setiap waktu keluaran.",
+    "en": "A table of date, hour, stage and flow at one cross section for every output time."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Tabel bisa disalin ke spreadsheet. Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Hanya rezim subkritis, satu alur per reach. Struktur lateral, storage area, area 2D, sambungan, dan pompa dihitung sejak 0.2.3 (juga Pratinjau); jembatan, gorong-gorong, dan struktur inline belum dihitung di unsteady.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The table can be copied into a spreadsheet. Preview status: results are not compared with HEC-RAS yet. Subcritical only, one flow path per reach. Lateral structures, storage areas, 2D areas, connections and pumps are computed since 0.2.3 (also Preview); bridges, culverts and inline structures are not computed in unsteady runs yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "results.hydrograph"
+   ]
+  },
+  {
+   "id": "geometry.lateral",
+   "title": {
+    "id": "Struktur lateral",
+    "en": "Lateral structure"
+   },
+   "short": {
+    "id": "Pelimpah atau tanggul di sisi reach yang mengalirkan air ke storage area, area 2D, atau keluar sistem.",
+    "en": "A weir or levee along a reach that spills water into a storage area, a 2D area or out of the system."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Aliran dihitung dengan persamaan pelimpah Q = C·L·H^1,5 per potongan mercu, dengan reduksi tenggelam Villemonte bila muka air hilir naik. Aliran bisa berbalik bila area lebih tinggi dari sungai. Koefisien default 1,1 (SI) atau 2,0 (US). Struktur lateral hanya dihitung di plan unsteady; plan steady mengabaikannya dengan peringatan.</p><h3>Langkah</h3><ol><li>Di Data Geometri, pilih reach, lalu klik Struktur Lateral di palet.</li><li>Klik Tambah, isi RS (di antara dua penampang), sisi (kiri atau kanan menghadap hilir), dan jarak dari penampang hulu.</li><li>Pilih tujuan: keluar sistem, storage area, atau area 2D.</li><li>Isi tabel stasiun–elevasi mercu dan koefisien pelimpah.</li><li>Bila perlu, isi data keruntuhan (breach) dan klik Perkiraan Froehlich untuk usulan lebar dan waktu runtuh.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Lateral Weir di file .g## (Type 6). Data breach disimpan di file .deras.json proyek karena HEC-RAS menyimpannya di plan.</p><h3>Hasil</h3><p>Hidrograf debit lateral tampil di Hasil (pilih &quot;Struktur lateral: …&quot; di daftar reach). Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Flow uses the weir equation Q = C·L·H^1.5 per crest piece, with Villemonte submergence when the tailwater rises. Flow reverses when the area is higher than the river. Default coefficient 1.1 (SI) or 2.0 (US). Lateral structures are computed in unsteady plans only; steady plans skip them with a warning.</p><h3>Steps</h3><ol><li>In Geometric Data, select the reach, then click Lateral Structure in the palette.</li><li>Click Add, enter the RS (between two cross sections), the side (left or right looking downstream) and the distance from the upstream section.</li><li>Pick the destination: out of the system, a storage area or a 2D area.</li><li>Fill the crest station–elevation table and the weir coefficient.</li><li>If needed, fill the breach data and click Froehlich estimate for a suggested width and formation time.</li></ol><h3>Data needed</h3><p>Lateral Weir lines in the .g## file (Type 6). Breach data is stored in the project&#x27;s .deras.json, because HEC-RAS keeps it in the plan file.</p><h3>Result</h3><p>The lateral flow hydrograph appears in Results (pick &quot;Lateral structure: …&quot; in the reach list). Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.storage",
+    "geometry.area2d",
+    "geometry.col.weir",
+    "unsteady.area"
+   ]
+  },
+  {
+   "id": "geometry.storage",
+   "title": {
+    "id": "Storage area",
+    "en": "Storage area"
+   },
+   "short": {
+    "id": "Kolam atau dataran yang menampung air dengan satu muka air datar.",
+    "en": "A pond or floodplain that stores water at one level water surface."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Volume dari tabel elevasi–volume, dari luas datar di atas elevasi minimum, atau dari terrain di dalam poligon. Muka air semua storage area yang terhubung dihitung bersama dengan Newton di setiap langkah.</p><h3>Langkah</h3><ol><li>Klik Storage Area di palet, lalu gambar poligon di kanvas (klik titik-titik, klik ganda untuk selesai), atau klik Tambah di daftar.</li><li>Beri nama dan pilih cara menghitung volume.</li><li>Isi tabel elevasi–volume atau luas dan elevasi minimum, atau pilih Terrain.</li><li>Hubungkan dengan struktur lateral, sambungan SA/2D, atau pompa.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Storage Area di file .g##.</p><h3>Hasil</h3><p>Muka air dan volume storage area tampil di Hasil. Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Volume comes from an elevation–volume table, from a flat area above a minimum elevation, or from the terrain inside the polygon. The water surfaces of all connected storage areas are solved together with Newton iterations at every step.</p><h3>Steps</h3><ol><li>Click Storage Area in the palette, then draw the polygon on the canvas (click the points, double-click to finish), or click Add in the list.</li><li>Give it a name and choose how the volume is computed.</li><li>Fill the elevation–volume table, or the area and minimum elevation, or choose Terrain.</li><li>Connect it with a lateral structure, an SA/2D connection or a pump.</li></ol><h3>Data needed</h3><p>Storage Area block in the .g## file.</p><h3>Result</h3><p>The storage area stage appears in Results. Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.col.volume",
+    "geometry.connection",
+    "unsteady.area"
+   ]
+  },
+  {
+   "id": "geometry.area2d",
+   "title": {
+    "id": "Area aliran 2D",
+    "en": "2D flow area"
+   },
+   "short": {
+    "id": "Wilayah dataran yang alirannya dihitung 2D di atas grid sel persegi.",
+    "en": "A floodplain region where flow is computed in 2D on a grid of square cells."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Metode: persamaan gelombang difusi, implisit penuh, di grid persegi di dalam poligon. Setiap sel menyimpan sampel terrain (subgrid), sehingga volume sel dan konveyansi muka sel mengikuti bentuk terrain di dalam sel. Ini berbeda dari mesh poligon HEC-RAS; hasilnya belum dibandingkan. Area 2D membutuhkan terrain di RAS Mapper.</p><h3>Langkah</h3><ol><li>Pastikan terrain sudah ditambahkan di RAS Mapper.</li><li>Klik Area 2D di palet, lalu gambar poligon di kanvas.</li><li>Isi nama, ukuran sel (kosong = sekitar 1/60 sisi terpanjang), dan n Manning.</li><li>Tambahkan BC line di tepi area bila air harus masuk atau keluar lewat tepi itu.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Storage Area dengan Storage Area Is2D=-1 di file .g##; ukuran sel di baris Point Generation Data.</p><h3>Hasil</h3><p>Kedalaman maksimum, kedalaman per waktu, kecepatan maksimum, dan waktu tiba tampil di RAS Mapper → Hasil area 2D. Selisih volume ditulis di pesan run. Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Method: diffusion-wave equations, fully implicit, on a square grid inside the polygon. Every cell keeps its terrain samples (subgrid), so the cell volume and the face conveyance follow the terrain inside the cell. This differs from the HEC-RAS polygon mesh; results are not compared yet. A 2D area needs a terrain in RAS Mapper.</p><h3>Steps</h3><ol><li>Make sure a terrain is added in RAS Mapper.</li><li>Click 2D Area in the palette, then draw the polygon on the canvas.</li><li>Enter the name, the cell size (empty = about 1/60 of the longest side) and Manning&#x27;s n.</li><li>Add a BC line on the area edge where water must enter or leave.</li></ol><h3>Data needed</h3><p>Storage Area block with Storage Area Is2D=-1 in the .g## file; the cell size goes on the Point Generation Data line.</p><h3>Result</h3><p>Maximum depth, depth per time, maximum velocity and arrival time appear in RAS Mapper → 2D area results. The volume error is written in the run messages. Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.bcline",
+    "mapper.results2d",
+    "mapper.terrain",
+    "unsteady.area"
+   ]
+  },
+  {
+   "id": "geometry.connection",
+   "title": {
+    "id": "Sambungan SA/2D",
+    "en": "SA/2D connection"
+   },
+   "short": {
+    "id": "Pelimpah antara dua storage area atau area 2D.",
+    "en": "A weir between two storage areas or 2D areas."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Aliran dengan persamaan pelimpah yang sama dengan struktur lateral, dua arah. Data breach bisa diisi seperti di struktur lateral.</p><h3>Langkah</h3><ol><li>Klik Sambungan di palet, lalu gambar garisnya di kanvas.</li><li>Pilih area hulu dan hilir.</li><li>Isi tabel mercu, lebar, dan koefisien.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok Connection di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Flow uses the same weir equation as lateral structures, in both directions. Breach data can be entered as for lateral structures.</p><h3>Steps</h3><ol><li>Click Connection in the palette, then draw its line on the canvas.</li><li>Pick the upstream and downstream areas.</li><li>Fill the crest table, width and coefficient.</li></ol><h3>Data needed</h3><p>Connection block in the .g## file.</p><h3>Result</h3><p>Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.storage",
+    "geometry.area2d",
+    "geometry.col.weir"
+   ]
+  },
+  {
+   "id": "geometry.bcline",
+   "title": {
+    "id": "BC line area 2D",
+    "en": "2D area BC line"
+   },
+   "short": {
+    "id": "Garis di tepi area 2D tempat kondisi batas dipasang.",
+    "en": "A line on the edge of a 2D area where a boundary condition is applied."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Sel yang dipotong garis menerima kondisi batasnya: hidrograf debit (dibagi menurut konveyansi), hidrograf muka air, atau normal depth (keluar dengan kemiringan gesek yang diisi).</p><h3>Langkah</h3><ol><li>Klik BC Line di palet, lalu gambar garis di dekat tepi area 2D.</li><li>Pilih area 2D dan beri nama.</li><li>Di Data Aliran Unsteady, klik Area/BC line… untuk memasang kondisi batasnya.</li></ol><h3>Data yang dibutuhkan</h3><p>Blok BC Line di file .g##.</p><h3>Hasil</h3><p>Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The cells crossed by the line receive its boundary condition: a flow hydrograph (shared by conveyance), a stage hydrograph or normal depth (outflow with the given friction slope).</p><h3>Steps</h3><ol><li>Click BC Line in the palette, then draw the line near the edge of the 2D area.</li><li>Pick the 2D area and give it a name.</li><li>In Unsteady Flow Data, click Area/BC line… to set its boundary condition.</li></ol><h3>Data needed</h3><p>BC Line block in the .g## file.</p><h3>Result</h3><p>Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.area2d",
+    "unsteady.area"
+   ]
+  },
+  {
+   "id": "geometry.pump",
+   "title": {
+    "id": "Stasiun pompa",
+    "en": "Pump station"
+   },
+   "short": {
+    "id": "Memompa air dari reach, storage area, atau sel area 2D ke lokasi lain atau keluar sistem.",
+    "en": "Pumps water from a reach, a storage area or a 2D area cell to another location or out of the system."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap grup pompa menyala bila muka air di sisi isap naik di atas elevasi nyala, dan mati di bawah elevasi mati. Debit = jumlah pompa × kapasitas.</p><h3>Langkah</h3><ol><li>Klik Stasiun Pompa di palet, lalu Tambah.</li><li>Pilih asal dan tujuan (penampang reach, storage area, titik di area 2D, atau keluar sistem).</li><li>Isi grup pompa: jumlah, kapasitas, elevasi nyala dan mati.</li></ol><h3>Data yang dibutuhkan</h3><p>Disimpan di file .deras.json proyek. Blok Pump Station di file .g## yang dibuat HEC-RAS tetap disimpan tetapi belum dibaca.</p><h3>Hasil</h3><p>Debit pompa tampil di Hasil. Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Each pump group starts when the inlet water surface rises above its on elevation and stops below its off elevation. Flow = number of pumps × capacity.</p><h3>Steps</h3><ol><li>Click Pump Station in the palette, then Add.</li><li>Pick the source and destination (reach cross section, storage area, point in a 2D area, or out of the system).</li><li>Fill the pump groups: count, capacity, on and off elevations.</li></ol><h3>Data needed</h3><p>Stored in the project&#x27;s .deras.json. Pump Station blocks in .g## files written by HEC-RAS are kept but not read yet.</p><h3>Result</h3><p>Pump flow appears in Results. Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.storage",
+    "geometry.area2d"
+   ]
+  },
+  {
+   "id": "geometry.col.volume",
+   "title": {
+    "id": "Tabel elevasi–volume",
+    "en": "Elevation–volume table"
+   },
+   "short": {
+    "id": "Volume tampungan storage area pada setiap elevasi, elevasi naik.",
+    "en": "Storage volume of the storage area at each elevation, elevations increasing."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Di antara titik dipakai interpolasi linear. Di atas titik terakhir, volume bertambah dengan luas dari dua titik terakhir.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Linear interpolation is used between points. Above the last point, the volume grows with the area of the last two points.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "geometry.col.xy",
+   "title": {
+    "id": "Koordinat X–Y",
+    "en": "X–Y coordinates"
+   },
+   "short": {
+    "id": "Titik poligon atau garis dalam koordinat peta, berurutan.",
+    "en": "Polygon or line points in map coordinates, in order."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Poligon tidak perlu ditutup; titik terakhir disambung otomatis ke titik pertama.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>Polygons need not be closed; the last point joins the first automatically.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": []
+  },
+  {
+   "id": "unsteady.area",
+   "title": {
+    "id": "Kondisi batas area",
+    "en": "Area boundary conditions"
+   },
+   "short": {
+    "id": "Kondisi batas untuk storage area dan area 2D.",
+    "en": "Boundary conditions for storage areas and 2D areas."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Storage area: hidrograf debit masuk, hidrograf muka air, atau hujan. Area 2D: hidrograf debit atau muka air, atau normal depth, lewat BC line; hujan untuk seluruh area. Hujan diisi sebagai tebal per interval (mm atau in). Muka air awal area diisi di tabel kondisi awal; kosong berarti kering (area 2D) atau elevasi minimum (storage area).</p><h3>Langkah</h3><ol><li>Klik Area/BC line….</li><li>Pilih area, BC line (untuk area 2D), dan jenis.</li><li>Klik Tambah, lalu isi hidrografnya.</li></ol><h3>Data yang dibutuhkan</h3><p>Boundary Location di file .u## dengan nama area di kolom ke-6 dan BC line di kolom ke-8.</p><h3>Hasil</h3><p>Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Storage area: inflow hydrograph, stage hydrograph or precipitation. 2D area: flow or stage hydrograph, or normal depth, through a BC line; precipitation over the whole area. Precipitation is entered as depth per interval (mm or in). The initial water surface of an area goes in the initial conditions table; empty means dry (2D area) or the minimum elevation (storage area).</p><h3>Steps</h3><ol><li>Click Area/BC line….</li><li>Pick the area, the BC line (for a 2D area) and the type.</li><li>Click Add, then fill its hydrograph.</li></ol><h3>Data needed</h3><p>Boundary Location in the .u## file with the area name in the 6th field and the BC line in the 8th.</p><h3>Result</h3><p>Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.storage",
+    "geometry.area2d",
+    "geometry.bcline",
+    "unsteady.types"
+   ]
+  },
+  {
+   "id": "mapper.results2d",
+   "title": {
+    "id": "Hasil area 2D",
+    "en": "2D area results"
+   },
+   "short": {
+    "id": "Peta kedalaman, kecepatan, dan waktu tiba dari area 2D sebuah plan unsteady.",
+    "en": "Depth, velocity and arrival time maps from the 2D areas of an unsteady plan."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Pilih area dan variabel: kedalaman maksimum, kedalaman pada waktu tertentu (geser slider), kecepatan maksimum, atau waktu tiba (jam sejak mulai sampai kedalaman 0,03 m / 0,1 ft). Kedalaman dihitung dari muka air sel dikurangi terrain di setiap piksel. Kecepatan dan waktu tiba bernilai satu per sel. Peta bisa diekspor ke GeoTIFF seperti peta genangan.</p><h3>Data yang dibutuhkan</h3><p>Hasil disimpan di &lt;nama&gt;.&lt;plan&gt;.deras-2d.bin di samping file hasil JSON.</p><h3>Hasil</h3><p>Status Pratinjau: dihitung oleh Analisis Unsteady, hasil belum dibandingkan dengan HEC-RAS.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Pick the area and the variable: maximum depth, depth at a time (move the slider), maximum velocity, or arrival time (hours from the start until a depth of 0.03 m / 0.1 ft). Depth is the cell water surface minus the terrain at each pixel. Velocity and arrival time have one value per cell. Maps export to GeoTIFF like inundation maps.</p><h3>Data needed</h3><p>Results are stored in &lt;name&gt;.&lt;plan&gt;.deras-2d.bin next to the JSON results file.</p><h3>Result</h3><p>Preview status: computed by Unsteady Flow Analysis; results are not compared with HEC-RAS yet.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "geometry.area2d",
+    "mapper.inundation",
+    "mapper.export"
+   ]
+  },
+  {
+   "id": "sediment.quasi",
+   "title": {
+    "id": "Data Quasi-unsteady",
+    "en": "Quasi-unsteady Flow Data"
+   },
+   "short": {
+    "id": "Rangkaian debit steady berurutan untuk hitungan sedimen: durasi, debit, interval hitung, dan muka air hilir.",
+    "en": "A sequence of steady flows for the sediment computation: duration, flow, computation increment and downstream stage."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Setiap baris adalah debit yang bertahan selama durasinya. Hidraulika (muka air, kecepatan, kemiringan energi) dihitung ulang dengan solver steady di setiap interval hitung, dan dasar alur diperbarui di antaranya. Muka air hilir kosong berarti normal depth dengan kemiringan yang diisi.</p><h3>Langkah</h3><ol><li>Pilih file geometri dan reach.</li><li>Isi tabel: durasi (jam), debit, interval hitung (jam), dan bila perlu muka air hilir.</li><li>Periksa grafik hidrograf di kanan.</li></ol><h3>Data yang dibutuhkan</h3><p>Disimpan di file .deras.json proyek (modul sediment). File .q## HEC-RAS belum dibaca atau ditulis.</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Satu reach, satu ukuran butir (d50), tanpa pemilahan butir atau armoring.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Each record is a flow held for its duration. The hydraulics (water surface, velocity, energy slope) are recomputed with the steady solver at every computation increment, and the channel bed is updated in between. An empty downstream stage means normal depth with the given slope.</p><h3>Steps</h3><ol><li>Pick the geometry file and the reach.</li><li>Fill the table: duration (h), flow, computation increment (h) and, if needed, the downstream stage.</li><li>Check the hydrograph plot on the right.</li></ol><h3>Data needed</h3><p>Stored in the project&#x27;s .deras.json (sediment module). HEC-RAS .q## files are not read or written yet.</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet. One reach, one grain size (d50), no grain sorting or armouring.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "sediment.data",
+    "sediment.run"
+   ]
+  },
+  {
+   "id": "sediment.data",
+   "title": {
+    "id": "Data Sedimen",
+    "en": "Sediment Data"
+   },
+   "short": {
+    "id": "Fungsi angkutan, sifat butir, gradasi material dasar, kedalaman yang bisa tergerus, dan muatan masuk di hulu.",
+    "en": "Transport function, grain properties, bed gradation, erodible depth and upstream inflow load."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Dasar yang bergerak adalah titik penampang di antara stasiun tebing; titik itu naik atau turun sama besar. Erosi dibatasi sampai kedalaman yang bisa tergerus di bawah dasar awal. Default porositas 0,4 dan berat jenis 2,65.</p><h3>Data yang dibutuhkan</h3><p>Disimpan di file .deras.json proyek (modul sediment). File .s## HEC-RAS belum dibaca atau ditulis.</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Satu reach, satu ukuran butir (d50), tanpa pemilahan butir atau armoring.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The movable bed is the cross-section points between the bank stations; they move up or down by the same amount. Erosion is limited to the erodible depth below the initial bed. Default porosity 0.4 and specific gravity 2.65.</p><h3>Data needed</h3><p>Stored in the project&#x27;s .deras.json (sediment module). HEC-RAS .s## files are not read or written yet.</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet. One reach, one grain size (d50), no grain sorting or armouring.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "sediment.function",
+    "sediment.gradation",
+    "sediment.inflow"
+   ]
+  },
+  {
+   "id": "sediment.function",
+   "title": {
+    "id": "Fungsi angkutan sedimen",
+    "en": "Sediment transport function"
+   },
+   "short": {
+    "id": "Persamaan kapasitas angkut di alur utama.",
+    "en": "The transport capacity equation of the main channel."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Meyer-Peter Müller (1948): angkutan dasar untuk pasir kasar dan kerikil, qs* = 8 (θ&#x27; − 0,047)^1,5 dengan koreksi kekasaran butir (n&#x27;/n)^1,5, n&#x27; = d90^(1/6)/26. Engelund-Hansen (1967): muatan total untuk pasir, qs = 0,05 V² √(d/(g(s−1))) θ^1,5. Yang (1973): muatan total pasir dari daya aliran satuan VS; untuk d50 di atas 2 mm hitungan memberi peringatan. Kecepatan endap memakai rumus Soulsby (1997).</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Meyer-Peter Müller (1948): bed load for coarse sand and gravel, qs* = 8 (θ&#x27; − 0.047)^1.5 with the grain roughness correction (n&#x27;/n)^1.5, n&#x27; = d90^(1/6)/26. Engelund-Hansen (1967): total load for sand, qs = 0.05 V² √(d/(g(s−1))) θ^1.5. Yang (1973): total sand load from the unit stream power VS; a warning is given for d50 above 2 mm. Fall velocity uses Soulsby (1997).</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "sediment.data"
+   ]
+  },
+  {
+   "id": "sediment.gradation",
+   "title": {
+    "id": "Gradasi material dasar",
+    "en": "Bed gradation"
+   },
+   "short": {
+    "id": "Diameter butir (mm) dan persen lolos dari analisis saringan.",
+    "en": "Grain diameter (mm) and percent finer from a sieve analysis."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>d50 dan d90 diinterpolasi secara logaritmik dari kurva. Hitungan memakai d50 sebagai ukuran wakil; d90 dipakai untuk koreksi kekasaran butir Meyer-Peter Müller.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>d50 and d90 are interpolated logarithmically from the curve. The computation uses d50 as the representative size; d90 is used for the Meyer-Peter Müller grain roughness correction.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "sediment.inflow",
+   "title": {
+    "id": "Muatan sedimen masuk",
+    "en": "Sediment inflow"
+   },
+   "short": {
+    "id": "Muatan sedimen yang masuk di penampang paling hulu.",
+    "en": "The sediment load entering at the most upstream section."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Muatan setimbang: sama dengan kapasitas angkut di penampang hulu, sehingga dasar di sana tetap. Air jernih: tanpa muatan (misalnya di hilir bendungan), dasar hulu tergerus. Rating curve: muatan dari tabel debit–muatan dalam ton per hari.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Equilibrium load: equal to the transport capacity at the upstream section, so the bed there does not change. Clear water: no load (for example below a dam), the upstream bed erodes. Rating curve: load from a flow–load table in tons per day.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": []
+  },
+  {
+   "id": "sediment.run",
+   "title": {
+    "id": "Analisis Sedimen",
+    "en": "Sediment Analysis"
+   },
+   "short": {
+    "id": "Menjalankan hitungan sedimen quasi-unsteady dan menampilkan perubahan dasar alur.",
+    "en": "Runs the quasi-unsteady sediment computation and shows the channel bed change."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Di setiap interval hitung: hidraulika steady → kapasitas angkut di setiap penampang → persamaan Exner (1 − p) B L dz/dt = Qs,masuk − Qs,keluar. Bila dasar akan berubah lebih dari 5 % kedalaman air, langkah dibagi otomatis dan hidraulika dihitung ulang. Neraca massa (masuk − keluar = perubahan dasar) ditampilkan di bawah tabel.</p><h3>Langkah</h3><ol><li>Isi Data Quasi-unsteady dan Data Sedimen.</li><li>Atur interval keluaran (jam).</li><li>Klik Hitung sedimen.</li><li>Geser slider waktu untuk melihat profil dasar dan tabel pada waktu itu; Ekspor CSV untuk semua waktu.</li></ol><h3>Data yang dibutuhkan</h3><p>Hasil ditulis ke &lt;nama&gt;.deras-sedimen.json di folder proyek.</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Satu reach, satu ukuran butir (d50), tanpa pemilahan butir atau armoring.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>At every computation increment: steady hydraulics → transport capacity at every section → the Exner equation (1 − p) B L dz/dt = Qs,in − Qs,out. When the bed would change by more than 5 % of the water depth, the step is split automatically and the hydraulics are recomputed. The mass balance (in − out = bed change) is shown below the table.</p><h3>Steps</h3><ol><li>Fill the Quasi-unsteady Data and Sediment Data.</li><li>Set the output interval (hours).</li><li>Click Compute sediment.</li><li>Move the time slider to see the bed profile and table at that time; Export CSV for all times.</li></ol><h3>Data needed</h3><p>Results go to &lt;name&gt;.deras-sedimen.json in the project folder.</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet. One reach, one grain size (d50), no grain sorting or armouring.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "sediment.results",
+    "sediment.quasi",
+    "sediment.data"
+   ]
+  },
+  {
+   "id": "sediment.results",
+   "title": {
+    "id": "Hasil sedimen",
+    "en": "Sediment results"
+   },
+   "short": {
+    "id": "Profil dasar awal dan pada waktu terpilih, perubahan dasar terhadap waktu, dan tabel per penampang.",
+    "en": "Initial bed and bed at the selected time, bed change over time, and a table per cross section."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Muatan di tabel adalah muatan yang keluar dari volume kontrol setiap penampang, dalam ton per hari.</p><h3>Hasil</h3><p>Status Pratinjau: hasil belum dibandingkan dengan HEC-RAS. Satu reach, satu ukuran butir (d50), tanpa pemilahan butir atau armoring.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>The load in the table is the load leaving the control volume of each section, in tons per day.</p><h3>Result</h3><p>Preview status: results are not compared with HEC-RAS yet. One reach, one grain size (d50), no grain sorting or armouring.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "sediment.run"
+   ]
+  },
+  {
+   "id": "tools.autosave",
+   "title": {
+    "id": "Autosave",
+    "en": "Autosave"
+   },
+   "short": {
+    "id": "Menyimpan salinan pemulihan perubahan yang belum disimpan setiap beberapa menit (0 = mati, bawaan 5 menit).",
+    "en": "Saves a recovery copy of unsaved changes every few minutes (0 = off, default 5 minutes)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Salinan pemulihan ditulis ke folder data aplikasi (recovery), bukan ke file proyek, jadi file HEC-RAS tidak berubah sampai Anda menyimpan. Kalau De-RAS tertutup tanpa menyimpan (listrik padam, crash), saat proyek dibuka lagi De-RAS menawarkan untuk memulihkan perubahan itu. Perubahan yang dipulihkan tampil sebagai belum disimpan. Salinan dihapus setelah proyek disimpan atau Anda memilih Jangan simpan saat menutup.</p><p><b>Status:</b> Tersedia</p>",
+    "en": "<h3>Purpose</h3><p>The recovery copy goes to the application data folder (recovery), not to the project files, so the HEC-RAS files do not change until you save. If De-RAS closes without saving (power cut, crash), it offers to recover those changes the next time the project opens. Recovered changes show as unsaved. The copy is deleted after the project is saved or when you choose Don&#x27;t save on closing.</p><p><b>Status:</b> Available</p>"
+   },
+   "status": "available",
+   "related": [
+    "options"
+   ]
+  },
+  {
+   "id": "design.uniform",
+   "title": {
+    "id": "Aliran seragam",
+    "en": "Uniform flow"
+   },
+   "short": {
+    "id": "Debit dari kedalaman, atau kedalaman normal dari debit, di saluran trapesium (persamaan Manning).",
+    "en": "Flow from depth, or normal depth from flow, in a trapezoidal channel (Manning's equation)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Q = (k/n) A R^(2/3) S^(1/2), k = 1 (SI) atau 1,486 (US). Kedalaman normal dicari dengan metode bagi dua. Kedalaman kritis dari Q²T/(gA³) = 1. Tegangan geser dasar τ = γRS. Talud z = 0 berarti saluran persegi.</p><h3>Langkah</h3><ol><li>Isi lebar dasar, talud, n dan kemiringan.</li><li>Pilih Debit dari kedalaman atau Kedalaman normal dari debit.</li><li>Isi kedalaman atau debit; hasil dan gambar penampang langsung diperbarui.</li></ol><h3>Hasil</h3><p>Status Pratinjau: rumus dan hasil belum dibandingkan dengan HEC-RAS. Keputusan desain tetap tanggung jawab perencana.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Q = (k/n) A R^(2/3) S^(1/2), k = 1 (SI) or 1.486 (US). The normal depth is found by bisection. Critical depth from Q²T/(gA³) = 1. Bed shear τ = γRS. Side slope z = 0 means a rectangular channel.</p><h3>Steps</h3><ol><li>Enter the bottom width, side slope, n and slope.</li><li>Choose Flow from depth or Normal depth from flow.</li><li>Enter the depth or flow; the results and the cross-section drawing update at once.</li></ol><h3>Result</h3><p>Preview status: equations and results are not compared with HEC-RAS yet. Design decisions remain the engineer&#x27;s responsibility.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "design.scour",
+    "design.calibration"
+   ]
+  },
+  {
+   "id": "design.scour",
+   "title": {
+    "id": "Gerusan jembatan (HEC-18)",
+    "en": "Bridge scour (HEC-18)"
+   },
+   "short": {
+    "id": "Gerusan pilar, gerusan kontraksi dan gerusan abutmen menurut FHWA HEC-18 edisi ke-5 (2012).",
+    "en": "Pier, contraction and abutment scour after FHWA HEC-18, 5th edition (2012)."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Pilar (persamaan CSU): ys/a = 2,0 K1 K2 K3 (y1/a)^0,35 Fr1^0,43; K1 dari bentuk ujung (persegi 1,1; bulat dan silinder 1,0; runcing 0,9; K1 = 1 bila sudut serang &gt; 5°), K2 = (cos θ + L/a sin θ)^0,65 dengan L/a paling besar 12, K3 dari kondisi dasar. Untuk pilar ujung bulat yang searah aliran, batas atas 2,4a untuk Fr ≤ 0,8 dan 3,0a di atasnya. Kontraksi dasar hidup (Laursen 1960 termodifikasi): y2/y1 = (Q2/Q1)^(6/7) (W1/W2)^k1, k1 0,59/0,64/0,69 dari V*/ω. Kontraksi air jernih (Laursen 1963): y2 = [Ku Q² / (Dm^(2/3) W²)]^(3/7), Dm = 1,25 D50. Gerusan = y2 − y0. Abutmen (Froehlich 1989): ys/ya = 2,27 K1 K2 (L&#x27;/ya)^0,43 Fr^0,61 + 1.</p><h3>Langkah</h3><ol><li>Pilih plan, profil dan penampang di Ambil nilai dari hasil hitungan, lalu klik Isi dari hasil (atau isi manual).</li><li>Lengkapi data pilar, kontraksi dan abutmen.</li><li>Baca gerusan di bawah setiap kartu dan total di pilar di bagian bawah.</li></ol><h3>Data yang dibutuhkan</h3><p>Isi dari hasil memakai y1 = kedalaman maksimum alur utama, V1 = kecepatan alur utama, Q1 = debit alur, Q2 = debit total, S1 = kemiringan energi, Ve = debit/luas bantaran kiri. Nilai ini titik awal; periksa terhadap kondisi jembatan sebenarnya.</p><h3>Hasil</h3><p>Status Pratinjau: rumus dan hasil belum dibandingkan dengan HEC-RAS. Keputusan desain tetap tanggung jawab perencana.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Pier (CSU equation): ys/a = 2.0 K1 K2 K3 (y1/a)^0.35 Fr1^0.43; K1 from the nose shape (square 1.1; round and circular 1.0; sharp 0.9; K1 = 1 when the attack angle is above 5°), K2 = (cos θ + L/a sin θ)^0.65 with L/a at most 12, K3 from the bed condition. For round-nose piers aligned with the flow, the upper limit is 2.4a for Fr ≤ 0.8 and 3.0a above. Live-bed contraction (modified Laursen 1960): y2/y1 = (Q2/Q1)^(6/7) (W1/W2)^k1, k1 0.59/0.64/0.69 from V*/ω. Clear-water contraction (Laursen 1963): y2 = [Ku Q² / (Dm^(2/3) W²)]^(3/7), Dm = 1.25 D50. Scour = y2 − y0. Abutment (Froehlich 1989): ys/ya = 2.27 K1 K2 (L&#x27;/ya)^0.43 Fr^0.61 + 1.</p><h3>Steps</h3><ol><li>Choose the plan, profile and cross section under Take values from computed results, then click Fill from results (or enter values by hand).</li><li>Complete the pier, contraction and abutment data.</li><li>Read the scour below each card and the total at the pier at the bottom.</li></ol><h3>Data needed</h3><p>Fill from results uses y1 = maximum main-channel depth, V1 = main-channel velocity, Q1 = channel flow, Q2 = total flow, S1 = energy slope, Ve = left overbank flow/area. These are starting values; check them against the actual bridge.</p><h3>Result</h3><p>Preview status: equations and results are not compared with HEC-RAS yet. Design decisions remain the engineer&#x27;s responsibility.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "design.uniform",
+    "geometry.bridge"
+   ]
+  },
+  {
+   "id": "design.calibration",
+   "title": {
+    "id": "Kalibrasi n Manning",
+    "en": "Manning's n calibration"
+   },
+   "short": {
+    "id": "Mencari satu faktor pengali n Manning agar muka air hitungan steady paling dekat dengan muka air terukur.",
+    "en": "Finds one factor on Manning's n so that the steady water surfaces come closest to the observed ones."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>De-RAS menjalankan hitungan steady berulang (pencarian golden-section pada log faktor di rentang yang diisi) dan meminimalkan RMS selisih muka air di penampang yang punya pengamatan. Faktor dipakai pada n alur utama saja atau pada semua n. Satu faktor untuk seluruh geometri; variasi n per lokasi belum dikalibrasi.</p><h3>Langkah</h3><ol><li>Pilih plan steady dan profil yang sesuai dengan kejadian terukur.</li><li>Isi muka air terukur di kolom terakhir.</li><li>Klik Kalibrasi dan periksa grafik serta RMS.</li><li>Klik Terapkan ke geometri bila hasilnya masuk akal, simpan, lalu hitung ulang.</li></ol><h3>Data yang dibutuhkan</h3><p>Pengamatan disimpan di .deras.json (modul calibration). Terapkan ke geometri mengalikan n di file geometri plan; perubahan bisa dibatalkan dengan menutup tanpa menyimpan.</p><h3>Hasil</h3><p>Status Pratinjau: rumus dan hasil belum dibandingkan dengan HEC-RAS. Keputusan desain tetap tanggung jawab perencana.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>De-RAS runs the steady computation repeatedly (golden-section search on the log of the factor within the given range) and minimises the RMS water-surface difference at the sections with observations. The factor applies to the main-channel n only or to every n. One factor for the whole geometry; n by location is not calibrated yet.</p><h3>Steps</h3><ol><li>Choose the steady plan and the profile that matches the observed event.</li><li>Enter the observed water surfaces in the last column.</li><li>Click Calibrate and check the plot and the RMS.</li><li>Click Apply to geometry if the result makes sense, save, then compute again.</li></ol><h3>Data needed</h3><p>Observations are stored in .deras.json (calibration module). Apply to geometry multiplies the n values in the plan&#x27;s geometry file; close without saving to undo.</p><h3>Result</h3><p>Preview status: equations and results are not compared with HEC-RAS yet. Design decisions remain the engineer&#x27;s responsibility.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "design.uniform"
+   ]
+  },
+  {
+   "id": "wq.data",
+   "title": {
+    "id": "Data Kualitas Air",
+    "en": "Water Quality Data"
+   },
+   "short": {
+    "id": "Konstituen, konsentrasi awal, koefisien dispersi, laju peluruhan, dan konsentrasi masuk di hulu.",
+    "en": "Constituent, initial concentration, dispersion coefficient, decay rate and upstream inflow concentration."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Kualitas air memakai hidraulika (muka air dan debit setiap waktu keluaran) dari hasil unsteady plan yang dipilih, di reach pertama plan itu. Satu konstituen dalam mg/L dengan peluruhan orde-1 (laju per hari, 0 = konservatif). Suhu, DO dan nutrien belum tersedia.</p><h3>Langkah</h3><ol><li>Pilih plan unsteady yang sudah dihitung.</li><li>Isi nama konstituen, konsentrasi awal, dispersi dan laju peluruhan.</li><li>Isi tabel jam dan konsentrasi di hulu.</li></ol><h3>Data yang dibutuhkan</h3><p>Disimpan di .deras.json (modul water_quality). File .w## HEC-RAS belum dibaca atau ditulis.</p><h3>Hasil</h3><p>Status Pratinjau: rumus dan hasil belum dibandingkan dengan HEC-RAS. Keputusan desain tetap tanggung jawab perencana.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>Water quality uses the hydraulics (water surface and flow at every output time) of the stored unsteady results of the chosen plan, in that plan&#x27;s first reach. One constituent in mg/L with first-order decay (rate per day, 0 = conservative). Temperature, DO and nutrients are not available yet.</p><h3>Steps</h3><ol><li>Choose an unsteady plan that has been computed.</li><li>Enter the constituent name, initial concentration, dispersion and decay rate.</li><li>Fill the table of hours and upstream concentration.</li></ol><h3>Data needed</h3><p>Stored in .deras.json (water_quality module). HEC-RAS .w## files are not read or written yet.</p><h3>Result</h3><p>Preview status: equations and results are not compared with HEC-RAS yet. Design decisions remain the engineer&#x27;s responsibility.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "wq.run"
+   ]
+  },
+  {
+   "id": "wq.run",
+   "title": {
+    "id": "Analisis Kualitas Air",
+    "en": "Water Quality Analysis"
+   },
+   "short": {
+    "id": "Menghitung sebaran konsentrasi sepanjang reach terhadap waktu.",
+    "en": "Computes the concentration along the reach over time."
+   },
+   "body": {
+    "id": "<h3>Fungsi</h3><p>Persamaan adveksi-dispersi 1D dengan volume hingga implisit (adveksi upwind, dispersi beda tengah), langkah dibagi agar bilangan Courant sekitar 1. Neraca massa: perubahan simpanan = masuk − keluar − meluruh + koreksi kontinuitas hidraulik. Koreksi muncul karena hidraulika yang tersimpan per waktu keluaran tidak menutup kontinuitas persis; nilainya ditampilkan agar terlihat besarnya (biasanya jauh di bawah 1 % massa masuk).</p><h3>Langkah</h3><ol><li>Isi Data Kualitas Air.</li><li>Klik Hitung kualitas air.</li><li>Geser slider waktu; grafik kanan menunjukkan konsentrasi di hulu, tengah dan hilir; Ekspor CSV untuk semua waktu.</li></ol><h3>Data yang dibutuhkan</h3><p>Hasil ditulis ke &lt;nama&gt;.&lt;plan&gt;.deras-wq.json. Contoh: proyek DerasUji1km memakai pelacak 100 mg/L selama 3 jam pada banjir p02.</p><p><b>Status:</b> Pratinjau</p>",
+    "en": "<h3>Purpose</h3><p>1D advection-dispersion with an implicit finite volume scheme (upwind advection, central dispersion); steps are split so that the Courant number is about 1. Mass balance: change in storage = in − out − decayed + hydraulic continuity correction. The correction appears because the stored hydraulics at output times do not close continuity exactly; it is shown so its size is visible (usually far below 1 % of the mass in).</p><h3>Steps</h3><ol><li>Fill the Water Quality Data.</li><li>Click Compute water quality.</li><li>Move the time slider; the right plot shows the concentration upstream, in the middle and downstream; Export CSV for all times.</li></ol><h3>Data needed</h3><p>Results go to &lt;name&gt;.&lt;plan&gt;.deras-wq.json. Example: the DerasUji1km project uses a 100 mg/L tracer for 3 hours on the p02 flood.</p><p><b>Status:</b> Preview</p>"
+   },
+   "status": "preview",
+   "related": [
+    "wq.data"
+   ]
+  }
+ ]
+}
