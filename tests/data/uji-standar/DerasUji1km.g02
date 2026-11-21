@@ -1,0 +1,104 @@
+Geom Title=Geometri uji + dataran 2D
+Program Version=7.00
+
+River Reach=Sungai Uji      ,Utama           
+Reach XY= 2 
+               0            1000               0               0
+Rch Text X Y=0,0
+Reverse River Text= 0 
+
+Type RM Length L Ch R = 1 ,1000    ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.5      30     104      33     101      47     101      50     104
+      80   105.5
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,800     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.3      30   103.8      33   100.8      47   100.8      50   103.8
+      80   105.3
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 6 ,790     ,,,
+BEGIN DESCRIPTION:
+Pelimpah samping tanggul kanan (sintetis)
+END DESCRIPTION:
+Node Last Edited Time=Nov/20/2026 05:19:23
+Lateral Weir Pos= 1
+Lateral Weir End=                ,                ,        ,Dataran Kanan   
+Lateral Weir Distance=10
+Lateral Weir WD=2
+Lateral Weir Coef=1.1
+Lateral Weir SE= 2
+       0   104.6     100   104.5
+
+Type RM Length L Ch R = 1 ,600     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.1      30   103.6      33   100.6      47   100.6      50   103.6
+      80   105.1
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,400     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.9      30   103.4      33   100.4      47   100.4      50   103.4
+      80   104.9
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,200     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.7      30   103.2      33   100.2      47   100.2      50   103.2
+      80   104.7
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,0       ,0,0,0
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.5      30     103      33     100      47     100      50     103
+      80   104.5
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Storage Area=Dataran Kanan   ,-232.5,480
+Storage Area Surface Line= 4 
+             -75             900             -75              60
+            -390              60            -390             900
+Storage Area Is2D=-1
+Storage Area Area=
+Storage Area Min Elev=
+Storage Area Point Generation Data=,,15,15
+Storage Area Vol Elev= 0 
+Storage Area Mannings=.06
+
+BC Line Name=Hilir Dataran
+BC Line Storage Area=Dataran Kanan
+BC Line Arc= 2 
+            -385              65             -80              65
+

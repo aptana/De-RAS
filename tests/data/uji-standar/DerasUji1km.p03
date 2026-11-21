@@ -1,0 +1,36 @@
+Plan Title=Plan unsteady banjir + dataran 2D
+Program Version=7.00
+Short Identifier=Dataran2D
+Simulation Date=01JAN2024,0000,02JAN2024,0000
+Geom File=g02
+Flow File=u02
+Computation Interval=1MIN
+Output Interval=30MIN
+Subcritical Flow
+K Sum by GR= 0 
+Std Step Tol= .003 
+Critical Tol= .003 
+Num of Std Step Trials= 20 
+Max Error Tol= .1 
+Flow Tol Ratio= 0.001 
+Split Flow NTrial= 30 
+Split Flow Tol= 0.02 
+Split Flow Ratio= 0.02 
+Log Output Level= 0 
+Friction Slope Method= 1 
+Unsteady Friction Slope Method= 2 
+Unsteady Bridges Friction Slope Method= 1 
+Parabolic Critical Depth
+Global Vel Dist= 0 , 0 , 0 
+Global Log Level= 0 
+CheckData=True
+Encroach Param=-1 ,0,0, 0 
+Computation Level Output = False
+Run HTab= 0 
+Run UNet= 1 
+Run Sediment= 0 
+Run PostProcess= 1 
+Run WQNet= 0 
+UNET Theta= 1 
+UNET ZTol= .01 
+UNET MaxIter= 20 

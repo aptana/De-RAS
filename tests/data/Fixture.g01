@@ -1,0 +1,59 @@
+Geom Title=Fixture geometry
+Program Version=6.60
+Viewing Rectangle=       0     ,      100     ,      600     ,      -50     
+
+River Reach=Kali Test       ,Hulu            
+Reach XY= 3 
+              50             550              52             300
+              50               0
+Rch Text X Y=50,300
+Reverse River Text= 0 
+
+Type RM Length L Ch R = 1 ,500     ,250,250,250
+BEGIN DESCRIPTION:
+Upstream section
+END DESCRIPTION:
+Node Last Edited Time=Nov/18/2026 10:00:00
+#Sta/Elev= 7 
+       0     106      20   104.5      30     102      35   100.5      45   100.5
+      50     102      80     106
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+XS HTab Starting El and Incr=100.6,0.1, 200 
+XS HTab Horizontal Distribution= 0 , 0 , 0 
+Exp/Cntr=0.3,0.1
+
+Type RM Length L Ch R = 1 ,250     ,250,250,250
+Node Last Edited Time=Nov/18/2026 10:00:00
+#Sta/Elev= 7 
+       0   105.8      20   104.3      30   101.8      35   100.3      45   100.3
+      50   101.8      80   105.8
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+#XS Ineff= 1 , 0 
+       0      20   104.8
+Permanent Ineff=
+       F
+XS Rating Curve= 0 ,0
+Exp/Cntr=0.3,0.1
+
+Type RM Length L Ch R = 1 ,0       ,0,0,0
+Node Last Edited Time=Nov/18/2026 10:00:00
+#Sta/Elev= 7 
+       0   105.5      20     104      30   101.5      35     100      45     100
+      50   101.5      80   105.5
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=0.3,0.1
+
+Chan Stop Cuts=-1
+
+Use User Specified Reach Order=0
+GIS Ratio Cuts To Invert=-1
+GIS Limit At Bridges=0
+Composite Channel Slope=5

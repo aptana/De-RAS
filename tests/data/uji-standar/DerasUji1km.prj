@@ -1,0 +1,38 @@
+Proj Title=Sungai Uji 1 km
+Current Plan=p01
+Default Exp/Contr=0.3,0.1
+SI Units
+Geom File=g01
+Geom File=g02
+Flow File=f01
+Plan File=p01
+Plan File=p02
+Plan File=p03
+Unsteady File=u01
+Unsteady File=u02
+Y Axis Title=Elevation
+X Axis Title(PF)=Main Channel Distance
+X Axis Title(XS)=Station
+BEGIN DESCRIPTION:
+Proyek uji standar De-RAS (data sintetis, bukan data lapangan).
+Sungai 1 km, penampang setiap 200 m (RS 1000 sampai 0), saluran utama lebar 20 m dan dalam 3 m, bantaran 30 m di kiri dan kanan. Kemiringan dasar 0,001; n alur 0,035, n bantaran 0,060.
+Debit 20, 60, dan 150 m3/s dengan batas hilir kedalaman normal. Dipakai untuk menguji setiap fitur analisis.
+Plan p02: banjir unsteady 24 jam (hidrograf segitiga 20-150-20 m3/s).
+Plan p03 (Pratinjau M6): banjir yang sama, pelimpah samping 100 m di tanggul kanan mengalirkan air ke area 2D "Dataran Kanan".
+Analisis Sedimen (Pratinjau M7): 22 hari aliran quasi-unsteady di g01, kerikil berpasir d50 2 mm, air jernih dari hulu (seperti di hilir bendungan).
+Kualitas Air (Pratinjau M8): pelacak 100 mg/L selama 3 jam masuk di hulu saat banjir p02; hitung Analisis Unsteady p02 dulu.
+END DESCRIPTION:
+DSS Start Date=
+DSS Start Time=
+DSS End Date=
+DSS End Time=
+DSS Export Filename=
+DSS Export Rating Curves= 0 
+DSS Export Rating Curve Sorted= 0 
+DSS Export Volume Flow Curves= 0 
+DXF Filename=
+DXF OffsetX= 0 
+DXF OffsetY= 0 
+DXF ScaleX= 1 
+DXF ScaleY= 10 
+GIS Export Profiles= 0 

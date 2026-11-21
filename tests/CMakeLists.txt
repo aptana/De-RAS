@@ -1,0 +1,10 @@
+# De-RAS tests: unit tests, I/O round-trip and analytical benchmarks.
+set(DERAS_TESTS test_units test_text test_json_hash test_xs test_benchmark test_io test_doctor test_run test_uji_standar test_m2 test_m3 test_m4 test_m5 test_m6 test_m7 test_m8)
+foreach(t ${DERAS_TESTS})
+  add_executable(${t} ${t}.cpp)
+  target_link_libraries(${t} PRIVATE deras_core)
+  target_compile_definitions(${t} PRIVATE DERAS_TEST_DATA="${CMAKE_CURRENT_SOURCE_DIR}/data")
+  add_test(NAME ${t} COMMAND ${t})
+endforeach()
+add_test(NAME roundtrip_fixture COMMAND deras-roundtrip ${CMAKE_CURRENT_SOURCE_DIR}/data --edit-check)
+add_test(NAME roundtrip_uji_standar COMMAND deras-roundtrip ${CMAKE_CURRENT_SOURCE_DIR}/data/uji-standar --edit-check)

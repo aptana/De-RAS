@@ -1,0 +1,75 @@
+Geom Title=Geometri uji 1 km
+Program Version=7.00
+
+River Reach=Sungai Uji      ,Utama           
+Reach XY= 2 
+               0            1000               0               0
+Rch Text X Y=0,0
+Reverse River Text= 0 
+
+Type RM Length L Ch R = 1 ,1000    ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.5      30     104      33     101      47     101      50     104
+      80   105.5
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,800     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.3      30   103.8      33   100.8      47   100.8      50   103.8
+      80   105.3
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,600     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   105.1      30   103.6      33   100.6      47   100.6      50   103.6
+      80   105.1
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,400     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.9      30   103.4      33   100.4      47   100.4      50   103.4
+      80   104.9
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,200     ,200,200,200
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.7      30   103.2      33   100.2      47   100.2      50   103.2
+      80   104.7
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
+Type RM Length L Ch R = 1 ,0       ,0,0,0
+Node Last Edited Time=Nov/20/2026 05:19:23
+#Sta/Elev= 6 
+       0   104.5      30     103      33     100      47     100      50     103
+      80   104.5
+#Mann= 3 , 0 , 0 
+       0     .06       0      30    .035       0      50     .06       0
+Bank Sta=30,50
+XS Rating Curve= 0 ,0
+Exp/Cntr=.3,.1
+
